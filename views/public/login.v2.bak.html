@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRISTOBAL - Giriş Yap</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1a1a1a",
+              "background-light": "#fcfcfc",
+              "background-dark": "#121212",
+              "surface-light": "#f5f3ef",
+              "surface-dark": "#1e1e1e",
+              "accent-gold": "#C5A059",
+              // New Reference Colors
+              "card-light": "#ffffff",
+              "card-dark": "#1e1e1e",
+              "input-bg-light": "#f8f9fa",
+              "input-bg-dark": "#2a2a2a",
+              "border-light": "#e5e7eb",
+              "border-dark": "#374151",
+              "text-main-light": "#1a1a1a",
+              "text-main-dark": "#e5e5e5",
+              "text-muted-light": "#6b7280",
+              "text-muted-dark": "#9ca3af",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+              display: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "2px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 antialiased font-sans transition-colors duration-300"
+  >
+    <!-- Top Bar -->
+    <div
+      class="bg-primary text-white text-xs tracking-widest text-center py-2 uppercase font-medium"
+    >
+      300$ ve Üzeri Siparişlerde Ücretsiz Kargo
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      class="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="w-full px-8 sm:px-10 lg:px-12">
+        <div class="relative flex items-center justify-between h-20">
+          <!-- Mobile Menu Button -->
+          <div class="flex items-center md:hidden">
+            <button
+              class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white p-2"
+            >
+              <span class="material-icons-outlined">menu</span>
+            </button>
+          </div>
+
+          <!-- Left: Logo -->
+          <div class="flex-shrink-0 flex items-center ml-6">
+            <a href="/">
+              <h1
+                class="font-serif text-2xl font-bold tracking-widest text-primary dark:text-white"
+              >
+                CRISTOBAL
+              </h1>
+            </a>
+          </div>
+
+          <!-- Center: Desktop Links (Absolute Centered) -->
+          <div
+            class="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8 lg:space-x-12"
+          >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/"
+              >Ana Sayfa</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/products"
+              id="nav-products-text"
+              >Ürünler</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/about"
+              id="nav-about-text"
+              >Hakkımızda</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/contact"
+              id="nav-contact-text"
+              >İletişim</a
+            >
+          </div>
+
+          <!-- Right: Icons & User Menu -->
+          <div class="hidden md:flex items-center justify-end space-x-6">
+            <!-- User Menu Area -->
+            <div id="user-menu-container" class="flex items-center">
+              <!-- Will be populated by JS -->
+            </div>
+
+            <span class="text-gray-300">|</span>
+
+            <!-- Cart -->
+            <a
+              href="/cart"
+              class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white relative group"
+            >
+              <span class="material-icons-outlined text-2xl">shopping_bag</span>
+              <span class="ml-2 text-base font-medium">Sepetim</span>
+              <span
+                id="cart-badge"
+                class="hidden absolute -top-1 -right-1 h-2 w-2 bg-accent-gold rounded-full ring-2 ring-white dark:ring-surface-dark"
+              ></span>
+            </a>
+
+            <span class="text-gray-300">|</span>
+
+            <!-- Lang -->
+            <div class="relative group">
+              <button
+                class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white py-4"
+              >
+                <span class="material-icons-outlined text-2xl">language</span>
+                <span class="ml-2 text-base font-medium">Dil</span>
+              </button>
+              <div
+                class="absolute top-full right-0 h-4 w-full bg-transparent"
+              ></div>
+              <div
+                class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 ease-in-out transform translate-y-4 group-hover:translate-y-0 z-50"
+              >
+                <a
+                  href="/set-lang/tr"
+                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"
+                  >TR</a
+                >
+                <a
+                  href="/set-lang/en"
+                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"
+                  >EN</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Icons (Minimal) -->
+          <div class="flex items-center space-x-4 md:hidden">
+            <a href="/cart" class="text-gray-500"
+              ><span class="material-icons-outlined">shopping_bag</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="bg-background-light dark:bg-background-dark min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden flex items-center justify-center"
+    >
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-gray-200/50 to-transparent dark:from-gray-800/20 rounded-full blur-3xl -z-10 pointer-events-none"
+      ></div>
+
+      <div
+        class="bg-card-light dark:bg-card-dark shadow-2xl w-full max-w-5xl flex flex-col md:flex-row overflow-hidden transition-colors duration-300 min-h-[600px]"
+      >
+        <!-- Left: Image Section -->
+        <div
+          class="hidden md:block w-1/2 relative bg-gray-100 dark:bg-gray-800"
+        >
+          <img
+            alt="Fashion model wearing a luxury coat in black and white"
+            class="absolute inset-0 w-full h-full object-cover filter grayscale contrast-110"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdOJtGM8tcGx5BMY1DhsLa9TL1o2Sy-NscvnBqV21g2kIWDgBUCSnjdSQgPHQP4wkzDrImGYWvAlRNN5LOskUlopG6OJUlgNxSK2CEX33-J69OTMV8whrGwV6rQovU2upxqyzD9THtKdHwiifOozGKh2gmmUH4DFqlRIrjC9BLJML6wSUHdfE-bMpZZcrxo4PM8xW1xe4VcOWrcG82oTgrCT2hYYSl0cZAMDo-d5xXf6ke5NJtKMw_3zU27ub4TIcC9tq5HreSTLQ"
+          />
+          <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
+          <div class="absolute bottom-8 left-8 text-white z-10">
+            <p class="font-display text-3xl font-light italic">
+              "Zarafet bir tavırdır."
+            </p>
+            <p class="text-xs uppercase tracking-widest mt-2 opacity-80">
+              — Cristobal Koleksiyonu
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Form Section -->
+        <div
+          class="w-full md:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center"
+        >
+          <div class="max-w-md mx-auto w-full">
+            <div class="text-center mb-10">
+              <h1
+                class="font-display text-3xl sm:text-4xl text-text-main-light dark:text-text-main-dark mb-3"
+              >
+                Giriş Yap
+              </h1>
+              <p
+                class="text-text-muted-light dark:text-text-muted-dark text-sm font-light"
+              >
+                Hesabınıza erişmek için bilgilerinizi girin.
+              </p>
+            </div>
+
+            <div
+              id="error-message"
+              class="hidden bg-red-50 text-red-600 p-3 text-sm mb-6 text-center border border-red-100"
+            ></div>
+
+            <form id="login-form" class="space-y-6">
+              <div>
+                <label
+                  class="block text-xs uppercase tracking-wider font-semibold text-text-muted-light dark:text-text-muted-dark mb-2"
+                  for="email"
+                  >Email</label
+                >
+                <input
+                  class="block w-full px-4 py-3 bg-input-bg-light dark:bg-input-bg-dark border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-colors duration-200 outline-none"
+                  id="email"
+                  name="email"
+                  placeholder="ornek@email.com"
+                  type="email"
+                  required
+                />
+              </div>
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <label
+                    class="block text-xs uppercase tracking-wider font-semibold text-text-muted-light dark:text-text-muted-dark"
+                    for="password"
+                    >Şifre</label
+                  >
+                  <a
+                    class="text-xs text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white underline transition-colors"
+                    href="#"
+                    >Şifremi Unuttum</a
+                  >
+                </div>
+                <input
+                  class="block w-full px-4 py-3 bg-input-bg-light dark:bg-input-bg-dark border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark focus:ring-1 focus:ring-primary focus:border-primary sm:text-sm transition-colors duration-200 outline-none"
+                  id="password"
+                  name="password"
+                  placeholder="••••••••"
+                  type="password"
+                  required
+                />
+              </div>
+              <div class="pt-4">
+                <button
+                  class="w-full flex justify-center py-4 px-4 border border-transparent shadow-sm text-sm font-medium text-white bg-primary hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary uppercase tracking-widest transition-all duration-300 transform hover:-translate-y-0.5"
+                  type="submit"
+                >
+                  Giriş Yap
+                </button>
+              </div>
+            </form>
+
+            <div class="mt-8 text-center">
+              <p
+                class="text-sm text-text-muted-light dark:text-text-muted-dark"
+              >
+                Hesabınız yok mu?
+                <a
+                  class="font-semibold text-text-main-light dark:text-text-main-dark hover:underline ml-1"
+                  href="/auth/register"
+                  >Kayıt Ol</a
+                >
+              </p>
+            </div>
+
+            <!-- Social Login (Visual Only) -->
+            <div class="mt-10">
+              <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                  <div
+                    class="w-full border-t border-border-light dark:border-border-dark"
+                  ></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                  <span
+                    class="px-2 bg-card-light dark:bg-card-dark text-text-muted-light dark:text-text-muted-dark text-xs uppercase tracking-wider"
+                    >Veya şununla devam et</span
+                  >
+                </div>
+              </div>
+              <div class="mt-6 grid grid-cols-2 gap-3">
+                <div>
+                  <a
+                    class="w-full inline-flex justify-center py-2 px-4 border border-border-light dark:border-border-dark bg-white dark:bg-input-bg-dark hover:bg-gray-50 dark:hover:bg-gray-700 text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white transition-colors duration-200"
+                    href="#"
+                  >
+                    <span class="sr-only">Google ile giriş yap</span>
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+                <div>
+                  <a
+                    class="w-full inline-flex justify-center py-2 px-4 border border-border-light dark:border-border-dark bg-white dark:bg-input-bg-dark hover:bg-gray-50 dark:hover:bg-gray-700 text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white transition-colors duration-200"
+                    href="#"
+                  >
+                    <span class="sr-only">Apple ile giriş yap</span>
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer (Simplified) -->
+    <footer class="bg-primary text-white pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-xs text-gray-500">© 2026 CRISTOBAL</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Navbar User Logic
+        fetch("/api/user/me")
+          .then((res) => res.json())
+          .then((data) => {
+            const user = data.user;
+            const lang = data.lang;
+
+            const userMenuContainer = document.getElementById(
+              "user-menu-container"
+            );
+
+            if (user) {
+              // If user is already logged in, maybe redirect to home?
+              // For now, just show the menu.
+              userMenuContainer.innerHTML = `
+                <div class="relative group">
+                    <button class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white py-4">
+                        <span class="material-icons-outlined text-2xl">perm_identity</span>
+                        <span class="ml-2 text-base font-medium hidden md:block">${
+                          user.username
+                        }</span>
+                    </button>
+                     <div class="absolute top-full right-0 h-2 w-full bg-transparent"></div>
+                    <div class="absolute right-0 top-full mt-2 w-56 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-xl rounded-sm py-2 hidden group-hover:block z-50">
+                        <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-800">
+                            <p class="text-xs text-gray-500">${
+                              lang === "en" ? "Welcome," : "Hoşgeldin,"
+                            }</p>
+                            <p class="text-base font-bold text-primary dark:text-white truncate">${
+                              user.username
+                            }</p>
+                        </div>
+                        ${
+                          user.role === "admin"
+                            ? `<a href="/admin" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">dashboard</span>Admin</a>`
+                            : `<a href="/user/profile" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">person</span>Profil</a>
+                             <a href="/user/orders" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">shopping_bag</span>Siparişler</a>`
+                        }
+                        <div class="border-t border-gray-100 dark:border-gray-800 mt-2 pt-2">
+                            <a href="/auth/logout" class="block px-4 py-2 text-base text-red-600 hover:bg-red-50 transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">logout</span>Çıkış</a>
+                        </div>
+                    </div>
+                </div>`;
+            } else {
+              userMenuContainer.innerHTML = `
+                <div class="flex items-center space-x-4">
+                    <a href="/auth/login" class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">Giriş Yap</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="/auth/register" class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">Kayıt Ol</a>
+                </div>`;
+            }
+          });
+      });
+
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const data = Object.fromEntries(formData.entries());
+          const errorDiv = document.getElementById("error-message");
+
+          errorDiv.classList.add("hidden");
+          errorDiv.innerText = "";
+
+          try {
+            const response = await fetch("/auth/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+              window.location.href = result.redirectUrl || "/";
+            } else {
+              errorDiv.innerText = result.error || "Giriş yapılamadı.";
+              errorDiv.classList.remove("hidden");
+            }
+          } catch (err) {
+            errorDiv.innerText = "Bir hata oluştu.";
+            errorDiv.classList.remove("hidden");
+          }
+        });
+    </script>
+  </body>
+</html>

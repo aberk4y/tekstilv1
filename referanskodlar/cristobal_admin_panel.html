@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CRISTOBAL Yönetici Paneli</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1C1C1C", // Dark charcoal for the premium brand feel
+                        "primary-light": "#333333",
+                        "accent": "#C0A062", // Gold accent for luxury
+                        "background-light": "#F8F8F8",
+                        "background-dark": "#121212",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E1E1E",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151",
+                    },
+                    fontFamily: {
+                        display: ["Cinzel", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-200">
+<div class="flex h-screen overflow-hidden">
+<aside class="hidden md:flex flex-col w-64 bg-surface-light dark:bg-surface-dark border-r border-border-light dark:border-border-dark flex-shrink-0 transition-colors duration-200">
+<div class="h-20 flex items-center justify-center border-b border-border-light dark:border-border-dark px-6">
+<div class="text-center">
+<h1 class="font-display text-2xl font-bold tracking-widest text-primary dark:text-white">CRISTOBAL</h1>
+<p class="text-[0.6rem] uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400 mt-1">Sizin İçin Rüyalar</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto py-6 px-3 space-y-1">
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md bg-primary text-white dark:bg-accent dark:text-primary transition-all" href="#">
+<span class="material-icons-outlined mr-3 text-lg opacity-90">dashboard</span>
+                    Kontrol Paneli
+                </a>
+<div class="pt-4 pb-2">
+<p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Yönetim</p>
+</div>
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-white transition-all" href="#">
+<span class="material-icons-outlined mr-3 text-lg text-gray-500 group-hover:text-primary dark:text-gray-400 dark:group-hover:text-white">inventory_2</span>
+                    Ürünler
+                </a>
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-white transition-all" href="#">
+<span class="material-icons-outlined mr-3 text-lg text-gray-500 group-hover:text-primary dark:text-gray-400 dark:group-hover:text-white">shopping_bag</span>
+                    Siparişler
+                </a>
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-white transition-all" href="#">
+<span class="material-icons-outlined mr-3 text-lg text-gray-500 group-hover:text-primary dark:text-gray-400 dark:group-hover:text-white">people</span>
+                    Müşteriler
+                </a>
+<div class="pt-4 pb-2">
+<p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">İçerik</p>
+</div>
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-white transition-all" href="#">
+<span class="material-icons-outlined mr-3 text-lg text-gray-500 group-hover:text-primary dark:text-gray-400 dark:group-hover:text-white">collections</span>
+                    Koleksiyonlar
+                </a>
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-white transition-all" href="#">
+<span class="material-icons-outlined mr-3 text-lg text-gray-500 group-hover:text-primary dark:text-gray-400 dark:group-hover:text-white">style</span>
+                    Katalog
+                </a>
+<div class="pt-4 pb-2">
+<p class="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Ayarlar</p>
+</div>
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-white transition-all" href="#">
+<span class="material-icons-outlined mr-3 text-lg text-gray-500 group-hover:text-primary dark:text-gray-400 dark:group-hover:text-white">settings</span>
+                    Genel
+                </a>
+<a class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary dark:hover:text-white transition-all" href="#">
+<span class="material-icons-outlined mr-3 text-lg text-gray-500 group-hover:text-primary dark:text-gray-400 dark:group-hover:text-white">logout</span>
+                    Çıkış Yap
+                </a>
+</nav>
+<div class="border-t border-border-light dark:border-border-dark p-4">
+<div class="flex items-center">
+<div class="flex-shrink-0">
+<img alt="Admin User" class="h-9 w-9 rounded-full object-cover border border-gray-300 dark:border-gray-600" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDskuwoVpQxC7Te9udcQ9EFqhrlkMYfaFdW4wJa24EUEwhc3BgEYbLNLuTA5YYU08u9Edj1Sl9XajX2vNykjpyhYJnq8R2zuyJmlcXULbZ-Eoit8eI08dJnN5Jdvpxb7hgJeLneboh5VomqqRUs6VCE5ScBOiBJ6uUInvvubVqIP9UQKaVp1hHH_ldHSICe7gp3Lc2r2cHn10BtCwher4B4Z7lLZrp_X1tx_gEgxR_MDMRC8pt7K_l7JUpHQDYni8s-HUW86JuojW4"/>
+</div>
+<div class="ml-3">
+<p class="text-sm font-medium text-gray-700 dark:text-gray-200">Cristobal Yönetici</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">admin@cristobal.com</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark overflow-hidden">
+<header class="flex items-center justify-between h-20 px-6 sm:px-8 border-b border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark transition-colors duration-200">
+<div class="flex items-center md:hidden">
+<button class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white">
+<span class="material-icons-outlined">menu</span>
+</button>
+<span class="ml-4 font-display font-bold text-lg text-primary dark:text-white">CRISTOBAL</span>
+</div>
+<div class="hidden md:flex flex-1 max-w-lg ml-4">
+<div class="relative w-full text-gray-400 focus-within:text-gray-600 dark:focus-within:text-gray-300">
+<div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+<span class="material-icons-outlined text-xl">search</span>
+</div>
+<input class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm bg-transparent dark:text-white dark:placeholder-gray-500" id="search" name="search" placeholder="Sipariş, ürün veya müşteri ara..." type="search"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-gray-400 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-300 relative">
+<span class="material-icons-outlined">notifications</span>
+<span class="absolute top-0 right-0 block h-2 w-2 rounded-full ring-2 ring-white dark:ring-surface-dark bg-red-500"></span>
+</button>
+<button class="text-gray-400 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-300">
+<span class="material-icons-outlined">dark_mode</span>
+</button>
+</div>
+</header>
+<div class="flex-1 overflow-auto p-6 sm:p-8">
+<div class="max-w-7xl mx-auto space-y-8">
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+<div>
+<h2 class="text-2xl font-bold leading-7 text-gray-900 dark:text-white sm:text-3xl sm:truncate font-display">Yönetici Paneli</h2>
+<p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Tekrar hoş geldiniz, mağazanızın durumu burada.</p>
+</div>
+<div class="mt-4 sm:mt-0 flex space-x-3">
+<button class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none transition-colors" type="button">
+<span class="material-icons-outlined text-sm mr-2">download</span>
+                                Raporu İndir
+                            </button>
+<button class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-primary-light dark:bg-accent dark:text-primary dark:hover:bg-yellow-600 focus:outline-none transition-colors" type="button">
+<span class="material-icons-outlined text-sm mr-2">add</span>
+                                Ürün Ekle
+                            </button>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+<div class="bg-surface-light dark:bg-surface-dark overflow-hidden shadow rounded-lg border border-border-light dark:border-border-dark">
+<div class="p-5">
+<div class="flex items-center">
+<div class="flex-shrink-0 bg-primary dark:bg-accent rounded-md p-3">
+<span class="material-icons-outlined text-white dark:text-primary">attach_money</span>
+</div>
+<div class="ml-5 w-0 flex-1">
+<dl>
+<dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Toplam Gelir</dt>
+<dd>
+<div class="text-lg font-medium text-gray-900 dark:text-white">$124,592.00</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800/50 px-5 py-3">
+<div class="text-sm">
+<span class="text-green-600 font-medium flex items-center">
+<span class="material-icons-outlined text-xs mr-1">arrow_upward</span> 12%
+                                    </span>
+<span class="text-gray-500 dark:text-gray-400 ml-1">geçen aya göre</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark overflow-hidden shadow rounded-lg border border-border-light dark:border-border-dark">
+<div class="p-5">
+<div class="flex items-center">
+<div class="flex-shrink-0 bg-primary dark:bg-accent rounded-md p-3">
+<span class="material-icons-outlined text-white dark:text-primary">shopping_cart</span>
+</div>
+<div class="ml-5 w-0 flex-1">
+<dl>
+<dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Toplam Sipariş</dt>
+<dd>
+<div class="text-lg font-medium text-gray-900 dark:text-white">1,493</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800/50 px-5 py-3">
+<div class="text-sm">
+<span class="text-green-600 font-medium flex items-center">
+<span class="material-icons-outlined text-xs mr-1">arrow_upward</span> 5.4%
+                                    </span>
+<span class="text-gray-500 dark:text-gray-400 ml-1">geçen aya göre</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark overflow-hidden shadow rounded-lg border border-border-light dark:border-border-dark">
+<div class="p-5">
+<div class="flex items-center">
+<div class="flex-shrink-0 bg-primary dark:bg-accent rounded-md p-3">
+<span class="material-icons-outlined text-white dark:text-primary">checkroom</span>
+</div>
+<div class="ml-5 w-0 flex-1">
+<dl>
+<dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Aktif Ürünler</dt>
+<dd>
+<div class="text-lg font-medium text-gray-900 dark:text-white">86</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800/50 px-5 py-3">
+<div class="text-sm">
+<span class="text-red-500 font-medium flex items-center">
+<span class="material-icons-outlined text-xs mr-1">warning</span> 2
+                                    </span>
+<span class="text-gray-500 dark:text-gray-400 ml-1">stok uyarısı</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark overflow-hidden shadow rounded-lg border border-border-light dark:border-border-dark">
+<div class="p-5">
+<div class="flex items-center">
+<div class="flex-shrink-0 bg-primary dark:bg-accent rounded-md p-3">
+<span class="material-icons-outlined text-white dark:text-primary">group</span>
+</div>
+<div class="ml-5 w-0 flex-1">
+<dl>
+<dt class="text-sm font-medium text-gray-500 dark:text-gray-400 truncate">Müşteriler</dt>
+<dd>
+<div class="text-lg font-medium text-gray-900 dark:text-white">2,304</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800/50 px-5 py-3">
+<div class="text-sm">
+<span class="text-green-600 font-medium flex items-center">
+<span class="material-icons-outlined text-xs mr-1">arrow_upward</span> 3.2%
+                                    </span>
+<span class="text-gray-500 dark:text-gray-400 ml-1">geçen aya göre</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 bg-surface-light dark:bg-surface-dark shadow rounded-lg border border-border-light dark:border-border-dark overflow-hidden">
+<div class="px-6 py-5 border-b border-border-light dark:border-border-dark flex justify-between items-center bg-gray-50 dark:bg-gray-800/30">
+<h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white font-display">Son Siparişler</h3>
+<a class="text-sm font-medium text-accent hover:text-yellow-600 transition-colors" href="#">Tümünü Gör</a>
+</div>
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+<thead class="bg-gray-50 dark:bg-surface-dark">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Sipariş No</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Müşteri</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Ürün</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Tarih</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Durum</th>
+<th class="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider" scope="col">Toplam</th>
+</tr>
+</thead>
+<tbody class="bg-surface-light dark:bg-surface-dark divide-y divide-gray-200 dark:divide-gray-700">
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">#ORD-4923</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Jane Cooper</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Yün Karışımlı Palto</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">24 Eki, 2023</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                                    Kargolandı
+                                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-right text-gray-900 dark:text-white font-semibold">$590.00</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">#ORD-4922</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Wade Warren</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Kaşmir Atkı</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">24 Eki, 2023</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
+                                                    Beklemede
+                                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-right text-gray-900 dark:text-white font-semibold">$120.00</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">#ORD-4921</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Esther Howard</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Kadife Gece Ceketi</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">23 Eki, 2023</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                                                    İşleniyor
+                                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-right text-gray-900 dark:text-white font-semibold">$850.00</td>
+</tr>
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">#ORD-4920</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Cameron Williamson</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">İpek Kravat Seti</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">23 Eki, 2023</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+                                                    Teslim Edildi
+                                                </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-right text-gray-900 dark:text-white font-semibold">$180.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark shadow rounded-lg border border-border-light dark:border-border-dark flex flex-col">
+<div class="px-6 py-5 border-b border-border-light dark:border-border-dark bg-gray-50 dark:bg-gray-800/30">
+<h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white font-display">Popüler Ürünler</h3>
+</div>
+<div class="flex-1 p-6 overflow-y-auto max-h-[400px]">
+<ul class="divide-y divide-gray-200 dark:divide-gray-700">
+<li class="py-4 first:pt-0">
+<div class="flex items-center space-x-4">
+<div class="flex-shrink-0">
+<img alt="Wool Coat" class="h-12 w-12 rounded object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH0dTxpSLhUcAb5o7ELxQp3AN2tKcUaulxGWkwOfutMypzIeRQamJLTAymuV6Ce6Z04uoEwAILV6Gvr-lKz0Z6vr4JKwrme70vnvxy_LqVZL3nupUWRIYubSmubWMfhZiGke26H4PH1glEL-_WKgVVpNeYJcmlHY5e60qUZ90rASbwYiI3a7FCvh8t6DsLQfIjBQVdgNMRzNREBG8_SoUbqUMzbNryXMeOmG1VF5MTdarmzA8vrerSmOtFqh1XuPtA01uomcwA1a4"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-gray-900 dark:text-white truncate">İtalyan Yün Palto</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Stok: 12 kaldı</p>
+</div>
+<div>
+<button class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none transition-colors">
+<span class="material-icons-outlined text-lg">edit</span>
+</button>
+</div>
+</div>
+</li>
+<li class="py-4">
+<div class="flex items-center space-x-4">
+<div class="flex-shrink-0">
+<img alt="Leather Jacket" class="h-12 w-12 rounded object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyaIJsnEwbmnEO0L4LeDVLAjpG-34EJvLNRPIxxtERu4LH3bnIW9pV6W5ndvSCBoVGRRF6P4GG9N4frarfUV64Air9F0nfGG6AShjm3ygvBtmgL0rEsQk2RTL60w57Bhefp5d1ROSDGPkELWO3xyNx82nLv2M49DHk28SBaEvgQJRtr3tToZT-2sBfIyMmeIlTU0T_cB-31_cKDb_Ylx1ErxRD0SsIIOCq0tOYH04_ODObCpZzdxrN-F2n4JulNQW5hklIeKma3Lk"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-gray-900 dark:text-white truncate">Klasik Deri Ceket</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Stok: 24 kaldı</p>
+</div>
+<div>
+<button class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none transition-colors">
+<span class="material-icons-outlined text-lg">edit</span>
+</button>
+</div>
+</div>
+</li>
+<li class="py-4">
+<div class="flex items-center space-x-4">
+<div class="flex-shrink-0">
+<img alt="Trench Coat" class="h-12 w-12 rounded object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWb847U89n5wu9xsJ_BAvQhWCZpioaTnxHJ7FIsvW8_CrlZoU7AGABJ4BCG8tsBcwG0QCaSIh2yPJpABXy-IyaRoo9RVHrjfmPo8W739LeHXgGPP4cbB_i5dH7pAIoUtJRl3dkIOXHcLzDodPkx2Myi_V07Nf53yjhQ_4xaJG9uXmsVwkvOIdSU8vxM5TnjDmx5aIUr7HPTGxNWt0GxfCgN3ow64VWzbuRXBrJ8lAsq3U9PCuZVs69RLKeeAN52VzaSemJoncKJEw"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-gray-900 dark:text-white truncate">Modern Trençkot</p>
+<p class="text-sm text-red-500 truncate">Stok: 2 kaldı</p>
+</div>
+<div>
+<button class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none transition-colors">
+<span class="material-icons-outlined text-lg">edit</span>
+</button>
+</div>
+</div>
+</li>
+<li class="py-4">
+<div class="flex items-center space-x-4">
+<div class="flex-shrink-0">
+<img alt="Silk Blazer" class="h-12 w-12 rounded object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs4XxaMkAV6CMn2f66LUK1rGb_DU8TYmZOWP2PE5uw5fSFi3m_fEGj-jV0BSRprLONtDNlJe6pASLNl1su58ZUD8oBzs_j0Q-Py6uLxhAfFiHGgw0kXJOVvkX1Tv27owCjgqmAwXgUtssYEb-4iLeNLH_AU-7J2qA6dzAd4ddG_jYPvZEh26RF6vaGs9iEZFwa93HP6UqOPuC7ps-AWYmWnxEkuVNcrLVhEux3K8rSPeJuIx07WghJlIJkE_VO93j_JLr3VfeQ_Us"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-medium text-gray-900 dark:text-white truncate">Yapılandırılmış İpek Blazer</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 truncate">Stok: 8 kaldı</p>
+</div>
+<div>
+<button class="inline-flex items-center p-1.5 border border-transparent rounded-full shadow-sm text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none transition-colors">
+<span class="material-icons-outlined text-lg">edit</span>
+</button>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="p-4 border-t border-border-light dark:border-border-dark bg-gray-50 dark:bg-gray-800/30">
+<a class="block w-full text-center text-sm font-medium text-primary dark:text-accent hover:underline" href="#">Tüm ürünleri gör</a>
+</div>
+</div>
+</div>
+<footer class="mt-8 border-t border-border-light dark:border-border-dark pt-6 pb-2">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="text-xs text-gray-500 dark:text-gray-400 mb-2 md:mb-0">
+                                © 2023 CRISTOBAL. Tüm hakları saklıdır.
+                            </div>
+<div class="flex space-x-4 text-xs text-gray-500 dark:text-gray-400">
+<a class="hover:text-primary dark:hover:text-white" href="#">Gizlilik Politikası</a>
+<a class="hover:text-primary dark:hover:text-white" href="#">Kullanım Şartları</a>
+<a class="hover:text-primary dark:hover:text-white" href="#">Destek</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

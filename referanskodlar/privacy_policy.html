@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gizlilik Politikası - CRISTOBAL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#2b333b",
+              "background-light": "#f8f8f6",
+              "background-dark": "#131315",
+              "ivory-surface": "#FAF7F2",
+            },
+            fontFamily: {
+              "display": ["Noto Serif", "serif"],
+              "body": ["Noto Sans", "sans-serif"],
+            },
+            borderRadius: {
+                "DEFAULT": "0.25rem", 
+                "lg": "0.5rem", 
+                "xl": "0.75rem", 
+                "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: "Noto Sans", sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Noto Serif", serif;
+        }html {
+            scroll-behavior: smooth;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-primary dark:text-gray-100 transition-colors duration-300">
+<header class="sticky top-0 z-50 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-[#ecedee] dark:border-gray-800">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+<button class="lg:hidden p-2 text-primary dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="size-6 text-primary dark:text-white">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_543)">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_543"><rect fill="white" height="48" width="48"></rect></clipPath>
+</defs>
+</svg>
+</div>
+<h2 class="text-primary dark:text-white text-lg font-bold leading-tight tracking-tight font-display">CRISTOBAL</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-10">
+<a class="text-primary/80 dark:text-white/80 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Mağaza</a>
+<a class="text-primary/80 dark:text-white/80 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Koleksiyonlar</a>
+<a class="text-primary/80 dark:text-white/80 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Hakkımızda</a>
+<a class="text-primary/80 dark:text-white/80 hover:text-primary dark:hover:text-white text-sm font-medium transition-colors" href="#">Dergi</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex text-primary dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="h-5 w-px bg-gray-300 dark:bg-gray-700 hidden sm:block"></div>
+<a class="text-primary dark:text-white text-sm font-medium hidden sm:block hover:underline" href="#">Giriş Yap</a>
+<button class="relative p-2 text-primary dark:text-white">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 flex size-2 bg-[#2b333b] dark:bg-white rounded-full"></span>
+</button>
+</div>
+</div>
+</header>
+<div class="relative min-h-screen">
+<div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-12 px-6 lg:px-12 py-12 lg:py-24">
+<aside class="hidden lg:block w-64 shrink-0">
+<div class="sticky top-32">
+<p class="text-xs font-bold uppercase tracking-widest text-primary/40 dark:text-gray-500 mb-6">İçindekiler</p>
+<nav class="flex flex-col gap-4 border-l border-gray-200 dark:border-gray-800 pl-4">
+<a class="text-sm font-medium text-primary dark:text-white hover:text-primary/70 transition-colors border-l-2 border-primary -ml-[17px] pl-4 py-1" href="#intro">Giriş</a>
+<a class="text-sm font-medium text-gray-500 hover:text-primary dark:hover:text-white transition-colors py-1" href="#data-collection">1. Veri Toplama</a>
+<a class="text-sm font-medium text-gray-500 hover:text-primary dark:hover:text-white transition-colors py-1" href="#data-usage">2. Verileri Nasıl Kullanıyoruz</a>
+<a class="text-sm font-medium text-gray-500 hover:text-primary dark:hover:text-white transition-colors py-1" href="#sharing">3. Paylaşım ve İfşa</a>
+<a class="text-sm font-medium text-gray-500 hover:text-primary dark:hover:text-white transition-colors py-1" href="#cookies">4. Çerezler ve İzleme</a>
+<a class="text-sm font-medium text-gray-500 hover:text-primary dark:hover:text-white transition-colors py-1" href="#rights">5. Haklarınız</a>
+<a class="text-sm font-medium text-gray-500 hover:text-primary dark:hover:text-white transition-colors py-1" href="#contact">6. Bize Ulaşın</a>
+</nav>
+<div class="mt-12 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+<p class="text-xs font-bold uppercase tracking-widest text-primary/40 dark:text-gray-400 mb-2">Yardıma mı ihtiyacınız var?</p>
+<p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Danışma ekibimiz gizlilik sorularınızı yanıtlamak için hazır.</p>
+<a class="inline-flex items-center gap-2 text-sm font-bold text-primary dark:text-white underline decoration-1 underline-offset-4 hover:decoration-2" href="mailto:privacy@cristobal.com">
+                            E-posta Desteği <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</aside>
+<main class="flex-1 max-w-[800px] mx-auto lg:mx-0">
+<div class="mb-16 border-b border-gray-200 dark:border-gray-800 pb-12">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 dark:bg-white/10 rounded-full mb-6">
+<span class="material-symbols-outlined text-[16px] text-primary dark:text-white">verified_user</span>
+<span class="text-xs font-bold text-primary dark:text-white uppercase tracking-wide">Yasal</span>
+</div>
+<h1 class="text-5xl md:text-6xl font-display font-bold text-primary dark:text-white leading-tight mb-6">Gizlilik Politikası</h1>
+<div class="flex flex-col sm:flex-row sm:items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                            Yürürlük Tarihi: 24 Ekim 2023
+                        </span>
+<span class="hidden sm:inline w-1 h-1 bg-gray-300 rounded-full"></span>
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+                            ~8 dk okuma
+                        </span>
+</div>
+</div>
+<div class="space-y-16">
+<section class="scroll-mt-32" id="intro">
+<p class="text-xl md:text-2xl text-primary dark:text-gray-200 font-display leading-relaxed mb-6">
+                            CRISTOBAL olarak, güven ilişkimizin temel dokusudur. Gizliliğin bir lüks değil, temel bir hak olduğuna inanıyoruz.
+                        </p>
+<p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Bu politika, kişisel bilgilerinizi nasıl ele aldığımız konusundaki şeffaflık taahhüdümüzü özetlemektedir. İster en son koleksiyonumuza göz atıyor olun ister bir satın alma işlemi gerçekleştirin, verilerinize kumaşlarımıza gösterdiğimiz özen ve hassasiyeti gösteriyoruz. Hizmetlerimizi kullanarak, bu politikada açıklanan uygulamaları kabul etmiş olursunuz.
+                        </p>
+</section>
+<section class="scroll-mt-32 group" id="data-collection">
+<div class="flex items-baseline gap-4 mb-6">
+<span class="text-xs font-bold text-primary/30 dark:text-gray-600 font-mono">01</span>
+<h2 class="text-3xl font-display font-bold text-primary dark:text-white">Veri Toplama</h2>
+</div>
+<div class="prose prose-lg text-gray-600 dark:text-gray-300">
+<p class="mb-4">
+                                Hesap oluşturduğunuzda, bir satın alma işlemi gerçekleştirdiğinizde veya bültenimize kaydolduğunuzda bize doğrudan sağladığınız bilgileri topluyoruz. Buna adınız, e-posta adresiniz, teslimat adresiniz ve ödeme bilgileriniz dahildir.
+                            </p>
+<div class="my-8 bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm">
+<h4 class="text-sm font-bold text-primary dark:text-white uppercase tracking-wide mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary/60 dark:text-white/60">database</span>
+                                    Topladığımız Veri Türleri
+                                </h4>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-600 text-[20px] mt-0.5">check_circle</span>
+<span class="text-sm">Kimlik Verileri (Ad, Kullanıcı Adı)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-600 text-[20px] mt-0.5">check_circle</span>
+<span class="text-sm">İletişim Verileri (Fatura Adresi, E-posta)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-600 text-[20px] mt-0.5">check_circle</span>
+<span class="text-sm">Finansal Veriler (Ödeme detayları)</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-green-600 text-[20px] mt-0.5">check_circle</span>
+<span class="text-sm">Teknik Veriler (IP adresi, Tarayıcı)</span>
+</li>
+</ul>
+</div>
+<p>
+                                Ayrıca, alışveriş deneyiminizi iyileştirmek için cihazınız ve sitemizle nasıl etkileşimde bulunduğunuz hakkında belirli bilgileri otomatik olarak topluyoruz.
+                            </p>
+</div>
+</section>
+<section class="scroll-mt-32" id="data-usage">
+<div class="flex items-baseline gap-4 mb-6">
+<span class="text-xs font-bold text-primary/30 dark:text-gray-600 font-mono">02</span>
+<h2 class="text-3xl font-display font-bold text-primary dark:text-white">Verileri Nasıl Kullanıyoruz</h2>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                            Verileriniz CRISTOBAL'daki kişiselleştirilmiş deneyimi besler. Toplanan verileri çeşitli amaçlar için kullanıyoruz:
+                        </p>
+<ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300 marker:text-primary/40 dark:marker:text-gray-500">
+<li>Siparişlerinizi verimli bir şekilde işlemek ve teslim etmek için.</li>
+<li>Şartlarımızdaki veya gizlilik politikamızdaki değişiklikler hakkında sizi bilgilendirmek de dahil olmak üzere bizimle olan ilişkinizi yönetmek için.</li>
+<li>Bir ödül çekilişine, yarışmaya katılmanızı veya bir anketi tamamlamanızı sağlamak için.</li>
+<li>Size ilgili web sitesi içeriğini ve reklamlarını sunmak ve size sunduğumuz reklamların etkinliğini ölçmek veya anlamak için.</li>
+</ul>
+</section>
+<section class="scroll-mt-32" id="sharing">
+<div class="flex items-baseline gap-4 mb-6">
+<span class="text-xs font-bold text-primary/30 dark:text-gray-600 font-mono">03</span>
+<h2 class="text-3xl font-display font-bold text-primary dark:text-white">Paylaşım ve İfşa</h2>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Kişisel verilerinizi satmıyoruz. Ancak, web sitemizi işletmemize, işimizi yürütmemize veya kullanıcılarımıza hizmet etmemize yardımcı olan güvenilir üçüncü taraflarla, bu tarafların bu bilgileri gizli tutmayı kabul etmeleri koşuluyla verilerinizi paylaşabiliriz. Örnekler arasında nakliye için lojistik ortakları, güvenli işlemler için ödeme ağ geçitleri ve analiz sağlayıcıları yer alır.
+                        </p>
+</section>
+<section class="scroll-mt-32" id="cookies">
+<div class="flex items-baseline gap-4 mb-6">
+<span class="text-xs font-bold text-primary/30 dark:text-gray-600 font-mono">04</span>
+<h2 class="text-3xl font-display font-bold text-primary dark:text-white">Çerezler</h2>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            Web sitemiz sizi web sitemizin diğer kullanıcılarından ayırt etmek için çerezler kullanır. Bu, web sitemize göz atarken size iyi bir deneyim sunmamıza yardımcı olur ve sitemizi geliştirmemize olanak tanır.
+                        </p>
+<div class="space-y-3">
+<details class="group bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+<summary class="flex items-center justify-between p-4 cursor-pointer select-none bg-gray-50 dark:bg-gray-800/50">
+<span class="font-bold text-sm text-primary dark:text-white">Kesinlikle Gerekli Çerezler</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-gray-500">expand_more</span>
+</summary>
+<div class="p-4 pt-2 text-sm text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700">
+                                    Bunlar web sitemizin çalışması için gerekli olan çerezlerdir. Örneğin, web sitemizin güvenli alanlarına giriş yapmanızı veya bir alışveriş sepeti kullanmanızı sağlayan çerezleri içerir.
+                                </div>
+</details>
+<details class="group bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+<summary class="flex items-center justify-between p-4 cursor-pointer select-none bg-gray-50 dark:bg-gray-800/50">
+<span class="font-bold text-sm text-primary dark:text-white">Analitik/Performans Çerezleri</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-gray-500">expand_more</span>
+</summary>
+<div class="p-4 pt-2 text-sm text-gray-600 dark:text-gray-300 border-t border-gray-100 dark:border-gray-700">
+                                    Ziyaretçi sayısını tanımamıza ve saymamıza ve ziyaretçilerin web sitemizi kullanırken nasıl hareket ettiklerini görmemize olanak tanırlar. Bu, web sitemizin çalışma şeklini iyileştirmemize yardımcı olur.
+                                </div>
+</details>
+</div>
+</section>
+<section class="scroll-mt-32" id="rights">
+<div class="flex items-baseline gap-4 mb-6">
+<span class="text-xs font-bold text-primary/30 dark:text-gray-600 font-mono">05</span>
+<h2 class="text-3xl font-display font-bold text-primary dark:text-white">Haklarınız</h2>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                            Belirli koşullar altında, kişisel verilerinizle ilgili olarak veri koruma yasaları kapsamında haklarınız vardır. Bunlar şunları içerir:
+                        </p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-4 bg-primary/5 dark:bg-white/5 rounded-lg">
+<h4 class="font-bold text-primary dark:text-white text-sm mb-2">Erişim Talebi</h4>
+<p class="text-xs text-gray-600 dark:text-gray-400">Hakkınızda tuttuğumuz kişisel verilerin bir kopyasını alın.</p>
+</div>
+<div class="p-4 bg-primary/5 dark:bg-white/5 rounded-lg">
+<h4 class="font-bold text-primary dark:text-white text-sm mb-2">Düzeltme Talebi</h4>
+<p class="text-xs text-gray-600 dark:text-gray-400">Eksik veya hatalı verilerin düzeltilmesini sağlayın.</p>
+</div>
+<div class="p-4 bg-primary/5 dark:bg-white/5 rounded-lg">
+<h4 class="font-bold text-primary dark:text-white text-sm mb-2">Silme Talebi</h4>
+<p class="text-xs text-gray-600 dark:text-gray-400">İşlemeye devam etmemiz için iyi bir neden olmadığında kişisel verileri silmemizi veya kaldırmamızı isteyin.</p>
+</div>
+<div class="p-4 bg-primary/5 dark:bg-white/5 rounded-lg">
+<h4 class="font-bold text-primary dark:text-white text-sm mb-2">Rızayı Geri Çekme</h4>
+<p class="text-xs text-gray-600 dark:text-gray-400">Kişisel verilerinizi işlemek için rızanıza dayandığımız durumlarda rızanızı istediğiniz zaman geri çekin.</p>
+</div>
+</div>
+</section>
+<section class="scroll-mt-32" id="contact">
+<div class="bg-[#2b333b] text-white rounded-2xl p-8 lg:p-12 relative overflow-hidden">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<h2 class="text-3xl font-display font-bold mb-4">Hala sorularınız mı var?</h2>
+<p class="text-gray-300 mb-8 max-w-lg">
+                                    Veri Koruma Görevlimiz, gizlilik uygulamalarımızla ilgili olabilecek tüm sorularınıza ayrıntılı yanıtlar vermek için hazırdır.
+                                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex items-center justify-center gap-2 bg-white text-[#2b333b] px-6 py-3 rounded-lg font-bold text-sm hover:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+                                        Gizlilik Ekibiyle İletişime Geçin
+                                    </button>
+<button class="flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-white/10 transition-colors">
+                                        PDF Olarak İndir
+                                    </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</div>
+<footer class="bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800 py-16 px-6 lg:px-12">
+<div class="max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6 text-[#131416] dark:text-white">
+<div class="size-5">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_footer)">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+</g>
+<defs>
+<clipPath id="clip0_footer"><rect fill="white" height="48" width="48"></rect></clipPath>
+</defs>
+</svg>
+</div>
+<h3 class="font-display font-bold text-xl tracking-tight">CRISTOBAL</h3>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Modern uzmanlar için zamansız tekstiller.</p>
+</div>
+<div>
+<h4 class="font-bold text-sm uppercase tracking-wider text-primary dark:text-white mb-6">Mağaza</h4>
+<ul class="flex flex-col gap-3 text-sm text-gray-600 dark:text-gray-400">
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Yeni Gelenler</a></li>
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Çok Satanlar</a></li>
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Yatak</a></li>
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Banyo</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm uppercase tracking-wider text-primary dark:text-white mb-6">Destek</h4>
+<ul class="flex flex-col gap-3 text-sm text-gray-600 dark:text-gray-400">
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Bize Ulaşın</a></li>
+<li><a class="hover:text-primary dark:hover:text-white" href="#">SSS</a></li>
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Kargo ve İade</a></li>
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Bakım Rehberi</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-sm uppercase tracking-wider text-primary dark:text-white mb-6">Yasal</h4>
+<ul class="flex flex-col gap-3 text-sm text-gray-600 dark:text-gray-400">
+<li><a class="text-primary dark:text-white font-medium" href="#">Gizlilik Politikası</a></li>
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Hizmet Şartları</a></li>
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Çerez Politikası</a></li>
+<li><a class="hover:text-primary dark:hover:text-white" href="#">Erişilebilirlik</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-gray-400 dark:text-gray-600">© 2023 CRISTOBAL A.Ş. Tüm hakları saklıdır.</p>
+<div class="flex gap-6">
+<a class="text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#">
+<span class="sr-only">Instagram</span>
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465C9.673 2.013 10.03 2 12.315 2zm-3.196 1.983c-.957.043-1.618.2-2.203.428-.606.236-1.12.55-1.57.999-.45.45-.762.964-.999 1.57-.228.585-.385 1.246-.428 2.203-.045.976-.057 1.267-.057 3.966s.012 2.99.057 3.966c.043.957.2 1.618.428 2.203.236.606.55 1.12.999 1.57.45.45.964.762 1.57.999.585.228 1.246.385 2.203.428.976.045 1.267.057 3.966.057s2.99-.012 3.966-.057c.957-.043 1.618-.2 2.203-.428.606-.236 1.12-.55 1.57-.999.45-.45.762-.964.999-1.57.228-.585.385-1.246.428-2.203.045-.976.057-1.267.057-3.966s-.012-2.99-.057-3.966c-.043-.957-.2-1.618-.428-2.203-.236-.606-.55-1.12-.999-1.57-.45-.45-.964-.762-1.57-.999-.585-.228-1.246-.385-2.203-.428-.975-.045-1.267-.057-3.966-.057s-2.99.012-3.966.057zM12.315 7.042a4.958 4.958 0 100 9.916 4.958 4.958 0 000-9.916zm0 1.983a2.975 2.975 0 110 5.95 2.975 2.975 0 010-5.95zm5.324-4.717a1.321 1.321 0 100 2.642 1.321 1.321 0 000-2.642z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-gray-400 hover:text-primary dark:hover:text-white transition-colors" href="#">
+<span class="sr-only">Twitter</span>
+<svg aria-hidden="true" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

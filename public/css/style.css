@@ -1,0 +1,299 @@
+/* Cristobal Theme Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #d4af37; /* Gold/Premium */
+    --secondary-color: #fcfaf8; /* Very Light Cream/Off-white */
+    --dark-bg: #1a1a1a;
+    --text-dark: #222222;
+    --text-light: #777777;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--white) !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+    padding: 1rem 3rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand img {
+    height: 50px;
+}
+
+.nav-link {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin: 0 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('../images/hero-bg.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    margin-top: -86px; /* Offset Navbar height for full screen effect if needed, but nav is fixed so care */
+    padding-top: 86px;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Darken for text readability */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    max-width: 800px;
+    padding: 20px;
+    animation: fadeInUp 1.5s ease;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p.lead {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.btn-premium {
+    background-color: transparent;
+    color: var(--white);
+    padding: 15px 40px;
+    border: 2px solid var(--white);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-premium:hover {
+    background-color: var(--white);
+    color: var(--black);
+    cursor: pointer;
+}
+
+/* Section Headings */
+section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 15px auto 0;
+}
+
+/* Product Cards */
+.product-card {
+    border: none;
+    background: var(--white);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.product-img {
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05); /* Zoom effect */
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    display: block;
+}
+
+.btn-add-cart {
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.btn-add-cart:hover {
+    background-color: var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growDown {
+    0% { transform: scaleY(0); }
+    80% { transform: scaleY(1.1); }
+    100% { transform: scaleY(1); }
+}
+
+/* Auth & Forms */
+.auth-container {
+    max-width: 450px;
+    margin: 80px auto;
+    background: var(--white);
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    border-radius: 4px;
+    border-top: 4px solid var(--primary-color);
+}
+
+.form-control {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+.btn-dark {
+    border-radius: 0;
+    padding: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Sidebar & Filters */
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    font-weight: 500;
+}
+
+.list-group-item.active {
+    background-color: var(--black);
+    border-color: var(--black);
+}
+
+/* Footer */
+footer {
+    background-color: var(--black);
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+footer h5 {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+footer a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: var(--primary-color);
+}
+
+/* Admin Panel */
+.admin-sidebar {
+    background: #2c3e50;
+    min-height: 100vh;
+}
+.admin-sidebar .nav-link {
+    color: #ecf0f1 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.admin-sidebar .nav-link:hover {
+    background: rgba(255,255,255,0.05);
+}

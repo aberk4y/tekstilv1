@@ -1,0 +1,20 @@
+{
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "products": "Ürünler",
+    "contact": "İletişim",
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol",
+    "logout": "Çıkış Yap",
+    "my_account": "Hesabım",
+    "orders": "Siparişlerim",
+    "settings": "Ayarlar",
+    "cart": "Sepetim",
+    "add_to_cart": "Sepete Ekle",
+    "price": "Fiyat",
+    "description": "Açıklama",
+    "welcome": "Cristobal'a Hoşgeldiniz",
+    "season_collection": "2024 Kış Koleksiyonu",
+    "discover": "Keşfet",
+    "admin_panel": "Yönetici Paneli"
+}

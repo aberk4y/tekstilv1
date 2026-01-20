@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRISTOBAL - Kayıt Ol</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1a1a1a",
+              "background-light": "#fcfcfc",
+              "background-dark": "#121212",
+              "surface-light": "#f5f3ef",
+              "surface-dark": "#1e1e1e",
+              "accent-gold": "#C5A059",
+              // New Reference Colors
+              "card-light": "#ffffff",
+              "card-dark": "#1e1e1e",
+              "input-bg-light": "#f7f7f7",
+              "input-bg-dark": "#2a2a2a",
+              "border-light": "#e5e5e5",
+              "border-dark": "#333333",
+              "text-light": "#333333",
+              "text-dark": "#e0e0e0",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+              display: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0px",
+              sm: "2px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 antialiased font-sans transition-colors duration-300"
+  >
+    <!-- Top Bar -->
+    <div
+      class="bg-primary text-white text-xs tracking-widest text-center py-2 uppercase font-medium"
+    >
+      300$ ve Üzeri Siparişlerde Ücretsiz Kargo
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      class="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="w-full px-8 sm:px-10 lg:px-12">
+        <div class="relative flex items-center justify-between h-20">
+          <!-- Mobile Menu Button -->
+          <div class="flex items-center md:hidden">
+            <button
+              class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white p-2"
+            >
+              <span class="material-icons-outlined">menu</span>
+            </button>
+          </div>
+
+          <!-- Left: Logo -->
+          <div class="flex-shrink-0 flex items-center ml-6">
+            <a href="/">
+              <h1
+                class="font-serif text-2xl font-bold tracking-widest text-primary dark:text-white"
+              >
+                CRISTOBAL
+              </h1>
+            </a>
+          </div>
+
+          <!-- Center: Desktop Links (Absolute Centered) -->
+          <div
+            class="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8 lg:space-x-12"
+          >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/"
+              >Ana Sayfa</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/products"
+              id="nav-products-text"
+              >Ürünler</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/about"
+              id="nav-about-text"
+              >Hakkımızda</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/contact"
+              id="nav-contact-text"
+              >İletişim</a
+            >
+          </div>
+
+          <!-- Right: Icons & User Menu -->
+          <div class="hidden md:flex items-center justify-end space-x-6">
+            <!-- User Menu Area -->
+            <div id="user-menu-container" class="flex items-center">
+              <!-- Will be populated by JS -->
+            </div>
+
+            <span class="text-gray-300">|</span>
+
+            <!-- Cart -->
+            <a
+              href="/cart"
+              class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white relative group"
+            >
+              <span class="material-icons-outlined text-2xl">shopping_bag</span>
+              <span class="ml-2 text-base font-medium">Sepetim</span>
+              <span
+                id="cart-badge"
+                class="hidden absolute -top-1 -right-1 h-2 w-2 bg-accent-gold rounded-full ring-2 ring-white dark:ring-surface-dark"
+              ></span>
+            </a>
+
+            <span class="text-gray-300">|</span>
+
+            <!-- Lang -->
+            <div class="relative group">
+              <button
+                class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white py-4"
+              >
+                <span class="material-icons-outlined text-2xl">language</span>
+                <span class="ml-2 text-base font-medium">Dil</span>
+              </button>
+              <div
+                class="absolute top-full right-0 h-4 w-full bg-transparent"
+              ></div>
+              <div
+                class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 ease-in-out transform translate-y-4 group-hover:translate-y-0 z-50"
+              >
+                <a
+                  href="/set-lang/tr"
+                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"
+                  >TR</a
+                >
+                <a
+                  href="/set-lang/en"
+                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"
+                  >EN</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Icons (Minimal) -->
+          <div class="flex items-center space-x-4 md:hidden">
+            <a href="/cart" class="text-gray-500"
+              ><span class="material-icons-outlined">shopping_bag</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="bg-background-light dark:bg-background-dark min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden flex items-center justify-center"
+    >
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-gray-200/50 to-transparent dark:from-gray-800/20 rounded-full blur-3xl -z-10 pointer-events-none"
+      ></div>
+
+      <div
+        class="flex w-full max-w-5xl bg-card-light dark:bg-card-dark shadow-xl dark:shadow-black/50 overflow-hidden min-h-[600px] transition-colors duration-300"
+      >
+        <!-- Left: Form Section -->
+        <div class="w-full lg:w-1/2 p-10 md:p-16 flex flex-col justify-center">
+          <div class="text-center mb-10">
+            <h1 class="font-display text-4xl text-primary dark:text-white mb-2">
+              Kayıt Ol
+            </h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm font-light">
+              Cristobal dünyasına katılın.
+            </p>
+          </div>
+
+          <div
+            id="error-message"
+            class="hidden bg-red-50 text-red-600 p-3 text-sm mb-6 text-center border border-red-100"
+          ></div>
+
+          <form id="register-form" class="space-y-6">
+            <div class="space-y-2">
+              <label
+                class="block text-[10px] font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300"
+                for="username"
+              >
+                Kullanıcı Adı
+              </label>
+              <input
+                class="block w-full px-4 py-3 bg-input-bg-light dark:bg-input-bg-dark border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white sm:text-sm transition-colors duration-200 outline-none"
+                id="username"
+                name="username"
+                placeholder=""
+                type="text"
+                required
+              />
+            </div>
+            <div class="space-y-2">
+              <label
+                class="block text-[10px] font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300"
+                for="email"
+              >
+                Email
+              </label>
+              <input
+                class="block w-full px-4 py-3 bg-input-bg-light dark:bg-input-bg-dark border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white sm:text-sm transition-colors duration-200 outline-none"
+                id="email"
+                name="email"
+                placeholder=""
+                type="email"
+                required
+              />
+            </div>
+            <div class="space-y-2">
+              <label
+                class="block text-[10px] font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300"
+                for="password"
+              >
+                Şifre
+              </label>
+              <input
+                class="block w-full px-4 py-3 bg-input-bg-light dark:bg-input-bg-dark border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white sm:text-sm transition-colors duration-200 outline-none"
+                id="password"
+                name="password"
+                placeholder=""
+                type="password"
+                required
+              />
+            </div>
+            <div class="pt-4">
+              <button
+                class="w-full flex justify-center py-4 px-4 border border-transparent text-xs font-bold uppercase tracking-widest text-white bg-primary hover:bg-gray-800 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-200"
+                type="submit"
+              >
+                Hesap Oluştur
+              </button>
+            </div>
+          </form>
+
+          <div
+            class="mt-8 text-center text-xs text-gray-500 dark:text-gray-400"
+          >
+            <p>
+              Zaten hesabınız var mı?
+              <a
+                class="font-bold text-black dark:text-white hover:underline ml-1"
+                href="/auth/login"
+                >Giriş Yap</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Image Section -->
+        <div
+          class="hidden lg:block w-1/2 relative bg-gray-100 dark:bg-gray-800"
+        >
+          <img
+            alt="Close up of black fabric texture"
+            class="absolute inset-0 w-full h-full object-cover filter grayscale contrast-125 brightness-90"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSr1kQC5GZaFw4D6CtwWg5wSpuC6vrCCInZm-2DcuK6uNmn8sayKh322jRWExUm2KQY80EKEriZ239vzqrQ_YqEStpyTh00wwDrb7fpNkmkdBbHo0nhbUc6XrJzWxo8h15nlzE6TWB6R0ZvDLjI-Pxp37AjaOjjXD7WjPt7-EYlSAuCj6q8l5I_G35nLvw7TsFdxom0swjYTQ-Xi0dgqo1atQhxqDLyoc5TVYGqdqT00KM1HnNsbHT7SaX871VqgBj4_7Tc69OWRA"
+          />
+          <div
+            class="absolute inset-0 bg-black/10 dark:bg-black/40 pointer-events-none"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Navbar User Logic
+        fetch("/api/user/me")
+          .then((res) => res.json())
+          .then((data) => {
+            const user = data.user;
+            const lang = data.lang;
+
+            const userMenuContainer = document.getElementById(
+              "user-menu-container"
+            );
+
+            if (user) {
+              userMenuContainer.innerHTML = `
+                <div class="relative group">
+                    <button class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white py-4">
+                        <span class="material-icons-outlined text-2xl">perm_identity</span>
+                        <span class="ml-2 text-base font-medium hidden md:block">${
+                          user.username
+                        }</span>
+                    </button>
+                     <div class="absolute top-full right-0 h-2 w-full bg-transparent"></div>
+                    <div class="absolute right-0 top-full mt-2 w-56 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-xl rounded-sm py-2 hidden group-hover:block z-50">
+                        <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-800">
+                            <p class="text-xs text-gray-500">${
+                              lang === "en" ? "Welcome," : "Hoşgeldin,"
+                            }</p>
+                            <p class="text-base font-bold text-primary dark:text-white truncate">${
+                              user.username
+                            }</p>
+                        </div>
+                        ${
+                          user.role === "admin"
+                            ? `<a href="/admin" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">dashboard</span>Admin</a>`
+                            : `<a href="/user/profile" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">person</span>Profil</a>
+                             <a href="/user/orders" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">shopping_bag</span>Siparişler</a>`
+                        }
+                        <div class="border-t border-gray-100 dark:border-gray-800 mt-2 pt-2">
+                            <a href="/auth/logout" class="block px-4 py-2 text-base text-red-600 hover:bg-red-50 transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">logout</span>Çıkış</a>
+                        </div>
+                    </div>
+                </div>`;
+            } else {
+              userMenuContainer.innerHTML = `
+                <div class="flex items-center space-x-4">
+                    <a href="/auth/login" class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">Giriş Yap</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="/auth/register" class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">Kayıt Ol</a>
+                </div>`;
+            }
+          });
+      });
+
+      document
+        .getElementById("register-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const data = Object.fromEntries(formData.entries());
+          const errorDiv = document.getElementById("error-message");
+
+          errorDiv.classList.add("hidden");
+
+          try {
+            const response = await fetch("/auth/register", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+              alert("Kayıt başarılı! Giriş yapabilirsiniz.");
+              window.location.href = result.redirectUrl || "/auth/login";
+            } else {
+              errorDiv.innerText = result.error || "Kayıt olunamadı.";
+              errorDiv.classList.remove("hidden");
+            }
+          } catch (err) {
+            errorDiv.innerText = "Bir hata oluştu.";
+            errorDiv.classList.remove("hidden");
+          }
+        });
+    </script>
+  </body>
+</html>

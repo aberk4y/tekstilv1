@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CRISTOBAL - Marka Hikayesi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1A1A1A", // Dark charcoal for text/elements to contrast with cream
+                        "accent-gold": "#C5A059", // Subtle gold accent for premium feel
+                        "background-light": "#F9F7F2", // Creamy white
+                        "background-dark": "#121212", // Deep charcoal for dark mode
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E1E1E",
+                        "text-light": "#333333",
+                        "text-dark": "#E0E0E0",
+                        "text-muted-light": "#666666",
+                        "text-muted-dark": "#A0A0A0"
+                    },
+                    fontFamily: {
+                        display: ["Cinzel", "serif"],
+                        body: ["Lato", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "2px", // Sharp, elegant corners
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-body antialiased transition-colors duration-300">
+<nav class="fixed w-full z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex-shrink-0 flex items-center">
+<img alt="CRISTOBAL Logo" class="h-8 w-auto block dark:hidden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC3-KUIVUglfYuUMrqCg8UVl-4ZsdRWaxFagPUFYcDoFQVZBFIjBAmK703jjo-C8Ee3xRDbtPBaTgdwt8qDmceD9pz47cxytGq_Rj4oEoxOQJR_bNimcfKpsQDXw5OeonfcMcbGdXcAiRmW-YZ2ZnxV1zjNEvsElI1DfGblfImoZL16ipsGopMED5ozIJ57nC_gZR3jbrgRIegSCWinEYrhd-tIG9wGltL4ZPxzM8aYw73D2av6LFUpwhLQga-oSsyWphGspK1nTk"/>
+<img alt="CRISTOBAL Logo" class="h-8 w-auto hidden dark:block invert brightness-0 filter invert-[1]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4F71PN_S2oYu8d3dWc-KV540FlsY66HA41GHRD2GFnpLYoarq9BvmCjlsIDWoo793uLy2Impv7Sa8dz0rhYeGeAXlb4RDLt5EX2S2yGwZj204vEB-2iwAT5i1jcDbfcqrRKeLvDgTkTEQPo0l-1YzkWtTTXBDFNT356pCi_SFvUWIdms1Eh0Zyoe8AnOVCM236E44qt_qwSvgYZ179zGFcbELWNEAKlq6a_4oKQKNAP7FPxtgc7ljN3tmjztO7PlmMHBdxjJzyYQ"/>
+</div>
+<div class="hidden md:flex space-x-12 items-center">
+<a class="text-sm uppercase tracking-widest hover:text-accent-gold transition-colors dark:hover:text-accent-gold" href="#">Koleksiyonlar</a>
+<a class="text-sm uppercase tracking-widest hover:text-accent-gold transition-colors dark:hover:text-accent-gold" href="#">Atölye</a>
+<a class="text-sm uppercase tracking-widest text-accent-gold font-semibold" href="#">Hakkımızda</a>
+<a class="text-sm uppercase tracking-widest hover:text-accent-gold transition-colors dark:hover:text-accent-gold" href="#">Dergi</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-icons-outlined text-xl">search</span>
+</button>
+<button class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-icons-outlined text-xl">shopping_bag</span>
+</button>
+<button class="md:hidden text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-icons-outlined text-xl">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-background-light dark:to-background-dark opacity-90"></div>
+<img alt="Textile workshop background" class="w-full h-full object-cover opacity-20 dark:opacity-10 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZs6rJrQsxwlQgaJz2Z_Kad9GAh2CXQh_INOoToTdzh5QDLhamQ-X2z85zyLmW3MdvrJZfTq_I94GxCct0aLe4A8-VEBZkWbQsM0VHsKcSg3Mp5tnxD3OkLNJNpem6mgaQy7QzNTSOgVcZI3uPuny2Gu_TfUr9FIOfDucqHYOcw1mTaHM6FlsunEgw0y2c72TO72dmrA-BAkWNbVeFmM2YCFi-dDvQGaGzAWYJtZ_lJN-9Vl32rQbxR0dE88qIjOa2QRjL4Z954-E"/>
+</div>
+<div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+<h1 class="text-5xl md:text-7xl font-display font-medium text-primary dark:text-white mb-6 tracking-wide fade-in-up">
+                SİZİN İÇİN HAYALLER
+            </h1>
+<div class="w-24 h-0.5 bg-accent-gold mx-auto mb-8 fade-in-up delay-100"></div>
+<p class="text-lg md:text-xl text-text-muted-light dark:text-text-muted-dark leading-relaxed font-light tracking-wide fade-in-up delay-200">
+                Kuruluşumuzdan bu yana CRISTOBAL, tekstil mükemmelliğinin peşinden gitmeye kendini adamıştır. Her ipliğe hikayeler dokuyor, mevsimleri aşan ve zarafeti tanımlayan montlar ve ceketler yaratıyoruz.
+            </p>
+</div>
+</header>
+<section class="py-20 bg-surface-light dark:bg-surface-dark transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-full h-full border border-accent-gold/30 z-0"></div>
+<img alt="Elegant coat hanging on a rack" class="relative z-10 w-full h-[600px] object-cover shadow-xl grayscale-[20%] hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5UHccvyvDTy8u57radnW2Ffc-ZWY5MQ1ikwDWI41Kt8Si3si4pUAiwx8PbcSxtvfrfVZCmva6FLh1p1qGBk0uKSFB3F1R1XV8s_tCGS_-lH-R9Yubu6ogXof28AO77kFSYQvtdokE0OP_yvb4dh9e5xGmBLyIH9kx_uTfWv3yX8t0LbeU75qDWWuydkSiCV6HxOZvVguq1-0GgtM3mpHl4k1-nUtlbo_WJDU1bCT4Gig2zDfky_31NfIFO7cMCleaO-N--Rfx8dg"/>
+</div>
+<div class="lg:pl-10">
+<span class="text-accent-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Vizyonumuz</span>
+<h2 class="text-3xl md:text-4xl font-display text-primary dark:text-white mb-8">Zamanın Ötesinde Zarafet</h2>
+<p class="text-text-muted-light dark:text-text-muted-dark leading-8 mb-6 font-light">
+                        CRISTOBAL olarak, gerçek lüksün detaylarda saklı olduğuna inanıyoruz. Vizyonumuz, sadece giyilen değil, deneyimlenen giysiler yaratmaktır. Gereksiz olanı çıkarıp, sadece form, işlev ve kumaşın temel güzelliğini bırakıyoruz.
+                    </p>
+<p class="text-text-muted-light dark:text-text-muted-dark leading-8 mb-10 font-light">
+                        Modern estetik anlayışından ilham alan koleksiyonlarımız, geleneksel terzilik ile çağdaş silüetler arasında bir köprü kuruyor. Geçici bir dünyada kalıcılığa değer veren bireyler için tasarlıyoruz.
+                    </p>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<h4 class="font-display text-xl text-primary dark:text-white mb-2">Miras</h4>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Nesilden nesile aktarılan geleneksel yöntemleri onurlandırıyoruz.</p>
+</div>
+<div>
+<h4 class="font-display text-xl text-primary dark:text-white mb-2">İnovasyon</h4>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Sürdürülebilir kumaşları ve modern teknikleri benimsiyoruz.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-background-light dark:bg-background-dark transition-colors duration-300">
+<div class="max-w-3xl mx-auto px-6 text-center mb-16">
+<span class="text-accent-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Üretim Sanatı</span>
+<h2 class="text-3xl md:text-4xl font-display text-primary dark:text-white mb-6">Zanaatkarlık</h2>
+<p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed font-light">
+                Her dikiş bir adanmışlık hikayesi anlatır. Atölyemiz, yetenekli zanaatkarların ham maddelere hayat verdiği bir sığınaktır.
+            </p>
+</div>
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group cursor-pointer">
+<div class="overflow-hidden mb-6 relative h-96">
+<img alt="Close up of fabric texture" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[30%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA18sQMBye5WZdGn-eqUQEHWGGA1KTxkTCAFD__bvofSYyGK4iblm2n2mGKJJ1iLbLv-DkjB30NAv_HcskOlyry8ZmL3vdWyc0oW5RroEWB9yjXONsuV_6xVGPyHVtvEwcKUcrXg0BiRS_Riu9XVWu3UxTvHc64XzZJdzqfvgR5PCc5A2nt54CXgDtrKr1CsKP3tnTyYHW9rNcHD74GxS5GrKc_hh48RcgbtSnxjTZDuqdvp2-pAvF9KAqzQcYXpE5Bl4LzrrjklR8"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+</div>
+<h3 class="text-xl font-display text-primary dark:text-white mb-3 text-center">Birinci Sınıf Malzemeler</h3>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark text-center leading-relaxed px-4">
+                        İtalya ve Japonya'nın en iyi fabrikalarından temin edilen yün, kaşmir ve ipeklerimiz, eşsiz dokuları ve dayanıklılıkları için seçilmektedir.
+                    </p>
+</div>
+<div class="group cursor-pointer">
+<div class="overflow-hidden mb-6 relative h-96">
+<img alt="Tailor working on a jacket" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[30%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxgl78viVJGT-jFkypyWyh--XwGU2M2fI5dO24LL4BGd9yWqAQ5yx_a1HT5pycGzd8qt3K-XfoViKwe8qZ60zzFh6JxnV-S1Pr5TVQ8zLsojVLhW5m7Ue8TbFyhOyuM2R0ybd_66SZlAdou2tyFyhBkcsqqp2n9N8G4SbZEKvdLwYI0rnunMM9fr_mHXvFBcVNX01A5NMGGDtpNyIkI8_sXAEXj-fbw1w8qNfmSPvScM1CqsIyqzv2EM2IFkE9tv6Iebq8_yqYh0c"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+</div>
+<h3 class="text-xl font-display text-primary dark:text-white mb-3 text-center">Sanatsal Terzilik</h3>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark text-center leading-relaxed px-4">
+                        Elle kesilen kalıplar ve titiz bitişler, her parçanın sadece bedene değil, giyenin ruhuna da uymasını sağlar.
+                    </p>
+</div>
+<div class="group cursor-pointer">
+<div class="overflow-hidden mb-6 relative h-96">
+<img alt="Design sketches on a table" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[30%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm34oBX4w7AX4BsBIKoEGbZxPftso-VZqR0pP58toDj5ClCOl5ryTuR4MvXCTN0Jp-_7wszlrozFdwXy5dcCSnkarg2xHjcY-qLYOin3RYbMnBK5ZEBdlIa0DNsnGwAD7aM2efokSZBlP2AzJkpxbYmKeFpms0pAX81HTSrsUnegZnxacFvLe6GbvzM_UBO6D6J9vYrcHL0wmGuCPIYL6QIXOYzF1laZSO4Ej9AN-g4XwPzmshIjB4b_UEfoElB9s96V_FHqOjV6Q"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+</div>
+<h3 class="text-xl font-display text-primary dark:text-white mb-3 text-center">Tasarım Felsefesi</h3>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark text-center leading-relaxed px-4">
+                        Klasik silüetleri çağdaş ihtiyaçlarla dengeliyor, hem işlevsel bir zırh hem de stil beyanı olan montlar yaratıyoruz.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-primary text-white relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="smallGrid" patternUnits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"></path>
+</pattern>
+</defs>
+<rect fill="url(#smallGrid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<span class="text-accent-gold text-sm font-bold tracking-[0.2em] uppercase mb-4 block">Sorumluluğumuz</span>
+<h2 class="text-3xl md:text-4xl font-display text-white mb-6">Üretim Etiği</h2>
+<p class="text-gray-300 leading-8 mb-6 font-light">
+                        Gezegene ve insanlarına karşı sorumluluğumuzun farkındayız. CRISTOBAL, giysilerimize dokunan her el için adil ücret ve güvenli çalışma koşulları sağlayarak etik üretim uygulamalarına bağlıdır.
+                    </p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start">
+<span class="material-icons-outlined text-accent-gold mr-3 mt-1">check_circle</span>
+<span class="text-gray-300 font-light">Zulümsüz çiftliklerden yün tedariki.</span>
+</li>
+<li class="flex items-start">
+<span class="material-icons-outlined text-accent-gold mr-3 mt-1">check_circle</span>
+<span class="text-gray-300 font-light">Sıfır atık kalıp kesim teknikleri.</span>
+</li>
+<li class="flex items-start">
+<span class="material-icons-outlined text-accent-gold mr-3 mt-1">check_circle</span>
+<span class="text-gray-300 font-light">Yerel zanaatkar topluluklarını destekleme.</span>
+</li>
+</ul>
+<a class="inline-block border border-white text-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-colors duration-300" href="#">
+                        Sürdürülebilirlik Raporumuzu Okuyun
+                    </a>
+</div>
+<div class="order-1 lg:order-2">
+<img alt="Peaceful forest suggesting sustainability" class="w-full h-[500px] object-cover filter brightness-75 rounded-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnLT5OhhsO0tkt1gEIoV0q6KnJ3PbCaX2X8baBljE1fXZcl2VgdEaNoeyrDFNzacOOb6bT9I0MYUeDhLxdQFLXAjz9Fg7ha7K4WHAxTAJXUujYkNY0yiZF9SL7GueMO02cwPMRpzlQR7yYzkfWmRPMmcsUH0xES6JG6S24yPKKC_o0hvN5vdKaQQdCaU6ea7QrPwb25UdXeBZ_5wqMJSygz4SOzRxeWkx3UeVf6_swM066oizshBFJbbvCFUK_dTqWx9eC7ZChQFs"/>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-background-light dark:bg-background-dark transition-colors duration-300">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<span class="material-icons-outlined text-4xl text-accent-gold mb-8">format_quote</span>
+<p class="text-2xl md:text-4xl font-display text-primary dark:text-white leading-tight italic mb-10">
+                "Biz sadece mont tasarlamıyoruz; varış hissini tasarlıyoruz."
+            </p>
+<div class="flex items-center justify-center space-x-4">
+<div class="w-12 h-1 bg-accent-gold"></div>
+<span class="text-sm uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark">Cristobal Kurucusu</span>
+</div>
+</div>
+</section>
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 transition-colors duration-300 pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<img alt="CRISTOBAL Logo" class="h-6 w-auto mb-6 block dark:hidden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3KrKf632ofy5sRSKXCEZohnICHTzHhY-SruzLbZjIImkQ_v9tNfhyEEYf9NzWCe641h4lbFSGb3q1luFvJ-z_iu8DIMSCJAFLX2E-PU2hd5YB8BxZA1eu33AOsojlugU_kHrDVCJBqqgmGA6RrHuem49WWH1C18GXp2Wi-M0-8ARFyG7p_kqlIIYOAU-L-mI7CDhaJKrBvqRJSdtA_1sSq61XMw_l3YZp6qg51gNQSggTX7a9CRlUPabV3LWP1X7vF6BParhsut0"/>
+<img alt="CRISTOBAL Logo" class="h-6 w-auto mb-6 hidden dark:block invert brightness-0 filter invert-[1]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_btib4zAHzmTFZNt_XBvMIUo0-GjibB8SJJ6E-Z2Bb88Fea-2SrZ97PPWQoEXII6uX66swAJSfkaXrNDGiyUPeEhBR1LWHlG8-DULF-iS0OAp129u4tq0RzytHO6Wl3KHe2ZNi7_G700Jfbd8kcnUlXHYKIC9NaC8n-kp6UZhS6lHZICDYLaYZ7EHrVXhErclx3srNF_D5HwzoCu6tZ2xhgZVc9ylDhohPzklKMz1ps_aP3mepbZGX_PkNhmTBugnltvogH5q8HU"/>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark leading-relaxed font-light">
+                        Sizin için hayaller. Tutku ve hassasiyetle işlenmiş olağanüstü montlar ve ceketler.
+                    </p>
+</div>
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest text-primary dark:text-white mb-6">Keşfet</h4>
+<ul class="space-y-4">
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-accent-gold transition-colors" href="#">Hikayemiz</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-accent-gold transition-colors" href="#">Koleksiyonlar</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-accent-gold transition-colors" href="#">Dergi</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-accent-gold transition-colors" href="#">Atölye</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest text-primary dark:text-white mb-6">Müşteri Hizmetleri</h4>
+<ul class="space-y-4">
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-accent-gold transition-colors" href="#">Bize Ulaşın</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-accent-gold transition-colors" href="#">Teslimat ve İadeler</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-accent-gold transition-colors" href="#">Beden Tablosu</a></li>
+<li><a class="text-sm text-text-muted-light dark:text-text-muted-dark hover:text-accent-gold transition-colors" href="#">SSS</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-bold uppercase tracking-widest text-primary dark:text-white mb-6">Bülten</h4>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark mb-4 font-light">Güncellemelerden haberdar olmak, özel fırsatlara erişmek ve daha fazlası için abone olun.</p>
+<form class="flex flex-col space-y-3">
+<input class="bg-transparent border border-gray-300 dark:border-gray-700 text-sm px-4 py-3 outline-none focus:border-accent-gold dark:focus:border-accent-gold dark:text-white transition-colors" placeholder="E-posta adresinizi girin" type="email"/>
+<button class="bg-primary text-white text-sm uppercase tracking-widest px-4 py-3 hover:bg-black transition-colors" type="submit">Abone Ol</button>
+</form>
+</div>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-xs text-text-muted-light dark:text-text-muted-dark mb-4 md:mb-0">
+                    © 2023 CRISTOBAL. Tüm hakları saklıdır.
+                </p>
+<div class="flex space-x-6">
+<a class="text-gray-400 hover:text-primary dark:hover:text-white transition-colors text-sm" href="#">Gizlilik Politikası</a>
+<a class="text-gray-400 hover:text-primary dark:hover:text-white transition-colors text-sm" href="#">Hizmet Şartları</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

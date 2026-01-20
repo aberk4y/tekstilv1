@@ -1,0 +1,20 @@
+{
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "my_account": "My Account",
+    "orders": "My Orders",
+    "settings": "Settings",
+    "cart": "My Cart",
+    "add_to_cart": "Add to Cart",
+    "price": "Price",
+    "description": "Description",
+    "welcome": "Welcome to Cristobal",
+    "season_collection": "2024 Winter Collection",
+    "discover": "Discover",
+    "admin_panel": "Admin Panel"
+}

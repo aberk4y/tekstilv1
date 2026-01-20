@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CRISTOBAL - Giriş ve Kayıt</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1a1a1a", // Deep black/charcoal for premium feel
+                        "primary-hover": "#333333",
+                        "accent": "#C4A484", // Subtle gold/beige accent for luxury
+                        "background-light": "#f9f9f9",
+                        "background-dark": "#121212",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e1e1e",
+                        "border-light": "#e5e5e5",
+                        "border-dark": "#333333",
+                        "text-light": "#1a1a1a",
+                        "text-dark": "#e0e0e0",
+                        "text-muted-light": "#666666",
+                        "text-muted-dark": "#9ca3af",
+                    },
+                    fontFamily: {
+                        display: ["Cinzel", "serif"], // Elegant serif for headings
+                        body: ["Montserrat", "sans-serif"], // Clean sans-serif for UI
+                    },
+                    borderRadius: {
+                        DEFAULT: "0px", // Sharp corners feel more premium/fashion often
+                        'sm': "2px",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 15px rgba(196, 164, 132, 0.1)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 3px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+        }
+        .fade-enter {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tab-active {
+            border-bottom: 2px solid #1a1a1a;
+            color: #1a1a1a;
+        }
+        .dark .tab-active {
+            border-bottom: 2px solid #e0e0e0;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-body min-h-screen flex flex-col transition-colors duration-300">
+<nav class="w-full py-6 px-8 flex justify-between items-center bg-transparent z-10">
+<div class="flex items-center space-x-4">
+<button aria-label="Toggle Dark Mode" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-outlined text-xl">dark_mode</span>
+</button>
+</div>
+<a class="block w-48 mx-auto md:w-56" href="#">
+<img alt="CRISTOBAL Dreams For You" class="w-full dark:invert filter transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAemtAib245vlXGRtX8I46zxVYEkKX6LZYRUfwkyMsMgMrYBnsr1sQ_vaJm62fcWxymnyu-kNPTUkM58Hbrbtn0LNbyEgUSsoGNtFc6f3GecIydruIWiGB3zDJfKtda8eaZnEOWDQIri_mVtEp-fPZ_fBKrRGsESSi_vPFHb-6VCE4o-1V1zrOcXAqPnl7o26g-9wiHN9Dj_8Y7koYc5-dlOkinBXEpTGgxbLiomaeD0o5mfIDG7n41biPI5gcao94wMcwdfjBZqlc"/>
+</a>
+<div class="flex items-center space-x-6 text-sm font-medium tracking-wider">
+<a class="hidden md:block hover:text-accent transition-colors" href="#">MAĞAZA</a>
+<a class="hidden md:block hover:text-accent transition-colors" href="#">KOLEKSİYONLAR</a>
+<button class="p-2 hover:text-accent transition-colors">
+<span class="material-icons-outlined">shopping_bag</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow flex items-center justify-center p-4 md:p-8">
+<div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-surface-light dark:bg-surface-dark shadow-soft dark:shadow-none border border-border-light dark:border-border-dark overflow-hidden min-h-[600px]">
+<div class="relative hidden md:flex flex-col justify-end p-12 bg-gray-100 dark:bg-gray-900 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-Xn80QSzsU3xiTTUKsMOWyFT9p9l6zRVaksJxaGf_J89HE8iJgOLpDnXfOQ1QG-YDx5Y3ghkq35cK6hsxxs1L8OG8-YeFlaO4j5unpBTkJqerJVqX_6ASljnTosESjDuxqkIlPjtrjt1AsvS_ZgWZ4nTel6BfvRC-AfhWpjFQb59x-kQIq-KHwdqnhXcBrLOmCLHrvO5M-8RFZzSZZlS8QupGGYj9o08L2h8l3FExEwTMzuUWaI6hEXG_ztaeyLS5O6TjMn1JHRU');">
+<div class="absolute inset-0 bg-black/30 dark:bg-black/50"></div>
+<div class="relative z-10 text-white">
+<h2 class="font-display text-3xl mb-4 tracking-wide">Her Dokunuşta Zarafet</h2>
+<p class="font-light text-gray-200 mb-8 text-sm leading-relaxed max-w-xs">
+                    Erken erişim, üyelere özel koleksiyonlar ve kişiselleştirilmiş terzilik hizmetlerine erişmek için özel topluluğumuza katılın.
+                </p>
+<a class="inline-flex items-center text-xs tracking-widest uppercase border-b border-white pb-1 hover:text-accent hover:border-accent transition-colors" href="#">
+                    Koleksiyonu Keşfet <span class="material-icons-outlined text-sm ml-2">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="flex flex-col justify-center p-8 md:p-12 lg:p-16 relative">
+<div class="flex mb-10 border-b border-border-light dark:border-border-dark" id="authTabs">
+<button class="flex-1 pb-4 text-center text-sm tracking-widest uppercase font-medium text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark transition-colors tab-active" onclick="switchTab('login')">
+                    Giriş Yap
+                </button>
+<button class="flex-1 pb-4 text-center text-sm tracking-widest uppercase font-medium text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark transition-colors" onclick="switchTab('register')">
+                    Kayıt Ol
+                </button>
+</div>
+<div class="fade-enter block" id="loginForm">
+<div class="mb-6">
+<h1 class="font-display text-2xl text-text-light dark:text-text-dark mb-2">Tekrar Hoşgeldiniz</h1>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Giriş yapmak için lütfen bilgilerinizi girin.</p>
+</div>
+<form action="#" class="space-y-5">
+<div class="space-y-1">
+<label class="text-xs uppercase tracking-wider font-semibold text-text-muted-light dark:text-text-muted-dark" for="email">E-posta Adresi</label>
+<input class="w-full bg-transparent border-b border-border-light dark:border-border-dark focus:border-primary dark:focus:border-white px-0 py-2 text-text-light dark:text-text-dark placeholder-gray-400 focus:ring-0 transition-colors" id="email" name="email" placeholder="ornek@email.com" type="email"/>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-baseline">
+<label class="text-xs uppercase tracking-wider font-semibold text-text-muted-light dark:text-text-muted-dark" for="password">Şifre</label>
+<a class="text-xs text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white transition-colors" href="#">Şifremi Unuttum</a>
+</div>
+<input class="w-full bg-transparent border-b border-border-light dark:border-border-dark focus:border-primary dark:focus:border-white px-0 py-2 text-text-light dark:text-text-dark placeholder-gray-400 focus:ring-0 transition-colors" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary hover:bg-primary-hover text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 font-medium text-sm py-4 tracking-widest uppercase transition-all duration-300 flex justify-center items-center group" type="submit">
+                            Giriş Yap
+                            <span class="material-icons-outlined text-sm ml-2 transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+<div class="mt-8 relative">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-border-light dark:border-border-dark"></div>
+</div>
+<div class="relative flex justify-center text-xs">
+<span class="px-2 bg-surface-light dark:bg-surface-dark text-text-muted-light dark:text-text-muted-dark uppercase tracking-wide">Veya şununla devam et</span>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center px-4 py-2 border border-border-light dark:border-border-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm text-text-muted-light dark:text-text-muted-dark">
+<svg aria-hidden="true" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"></path>
+</svg>
+                        Google ile devam et
+                    </button>
+<button class="flex items-center justify-center px-4 py-2 border border-border-light dark:border-border-dark hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm text-text-muted-light dark:text-text-muted-dark">
+<svg aria-hidden="true" class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+<path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path>
+</svg>
+                        Apple ile devam et
+                    </button>
+</div>
+</div>
+<div class="hidden fade-enter" id="registerForm">
+<div class="mb-6">
+<h1 class="font-display text-2xl text-text-light dark:text-text-dark mb-2">Hesap Oluştur</h1>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">Özel avantajlar için CRISTOBAL'a katılın.</p>
+</div>
+<form action="#" class="space-y-5">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-xs uppercase tracking-wider font-semibold text-text-muted-light dark:text-text-muted-dark" for="first-name">Ad</label>
+<input class="w-full bg-transparent border-b border-border-light dark:border-border-dark focus:border-primary dark:focus:border-white px-0 py-2 text-text-light dark:text-text-dark placeholder-gray-400 focus:ring-0 transition-colors" id="first-name" name="first-name" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs uppercase tracking-wider font-semibold text-text-muted-light dark:text-text-muted-dark" for="last-name">Soyad</label>
+<input class="w-full bg-transparent border-b border-border-light dark:border-border-dark focus:border-primary dark:focus:border-white px-0 py-2 text-text-light dark:text-text-dark placeholder-gray-400 focus:ring-0 transition-colors" id="last-name" name="last-name" type="text"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-xs uppercase tracking-wider font-semibold text-text-muted-light dark:text-text-muted-dark" for="reg-email">E-posta Adresi</label>
+<input class="w-full bg-transparent border-b border-border-light dark:border-border-dark focus:border-primary dark:focus:border-white px-0 py-2 text-text-light dark:text-text-dark placeholder-gray-400 focus:ring-0 transition-colors" id="reg-email" name="reg-email" type="email"/>
+</div>
+<div class="space-y-1">
+<label class="text-xs uppercase tracking-wider font-semibold text-text-muted-light dark:text-text-muted-dark" for="reg-password">Şifre</label>
+<input class="w-full bg-transparent border-b border-border-light dark:border-border-dark focus:border-primary dark:focus:border-white px-0 py-2 text-text-light dark:text-text-dark placeholder-gray-400 focus:ring-0 transition-colors" id="reg-password" name="reg-password" type="password"/>
+<p class="text-[10px] text-text-muted-light dark:text-text-muted-dark mt-1">En az 8 karakter olmalıdır.</p>
+</div>
+<div class="flex items-start mt-4">
+<div class="flex items-center h-5">
+<input class="focus:ring-primary h-4 w-4 text-primary border-gray-300 rounded-none bg-transparent dark:border-gray-600 dark:checked:bg-white dark:checked:border-white" id="newsletter" name="newsletter" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-light text-text-light dark:text-text-dark" for="newsletter">Yeni koleksiyonlara erken erişim için bültenimize abone olun.</label>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary hover:bg-primary-hover text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 font-medium text-sm py-4 tracking-widest uppercase transition-all duration-300" type="submit">
+                            Hesap Oluştur
+                        </button>
+</div>
+</form>
+<div class="mt-6 text-center">
+<p class="text-xs text-text-muted-light dark:text-text-muted-dark">
+                        Hesap oluşturarak <a class="underline hover:text-primary dark:hover:text-white" href="#">Şartlar</a> ve <a class="underline hover:text-primary dark:hover:text-white" href="#">Gizlilik Politikası</a>'nı kabul etmiş olursunuz.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-4 left-0 w-full text-center md:hidden">
+<a class="text-xs text-text-muted-light dark:text-text-muted-dark underline" href="#">Yardıma mı ihtiyacınız var?</a>
+</div>
+</main>
+<footer class="py-8 bg-transparent text-center">
+<p class="text-xs text-text-muted-light dark:text-text-muted-dark font-light tracking-widest uppercase">
+        © 2024 CRISTOBAL. Tüm hakları saklıdır.
+    </p>
+</footer>
+<script>
+    function switchTab(tab) {
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const buttons = document.getElementById('authTabs').getElementsByTagName('button');
+        if (tab === 'login') {
+            loginForm.classList.remove('hidden');
+            registerForm.classList.add('hidden');
+            buttons[0].classList.add('tab-active', 'text-text-light', 'dark:text-text-dark');
+            buttons[0].classList.remove('text-text-muted-light', 'dark:text-text-muted-dark');
+            buttons[1].classList.remove('tab-active', 'text-text-light', 'dark:text-text-dark');
+            buttons[1].classList.add('text-text-muted-light', 'dark:text-text-muted-dark');
+        } else {
+            loginForm.classList.add('hidden');
+            registerForm.classList.remove('hidden');
+            buttons[1].classList.add('tab-active', 'text-text-light', 'dark:text-text-dark');
+            buttons[1].classList.remove('text-text-muted-light', 'dark:text-text-muted-dark');
+            buttons[0].classList.remove('tab-active', 'text-text-light', 'dark:text-text-dark');
+            buttons[0].classList.add('text-text-muted-light', 'dark:text-text-muted-dark');
+        }
+    }
+</script>
+
+</body></html>

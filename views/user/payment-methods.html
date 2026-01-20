@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRISTOBAL - Ödeme Yöntemlerim</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1a1a1a",
+              "background-light": "#fcfcfc",
+              "background-dark": "#121212",
+              "surface-light": "#f5f3ef",
+              "surface-dark": "#1e1e1e",
+              "accent-gold": "#C5A059",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+              display: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 antialiased font-sans transition-colors duration-300"
+  >
+    <!-- Top Bar -->
+    <div
+      class="bg-primary text-white text-xs tracking-widest text-center py-2 uppercase font-medium"
+    >
+      300$ ve Üzeri Siparişlerde Ücretsiz Kargo
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      class="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="w-full px-8 sm:px-10 lg:px-12">
+        <div class="relative flex items-center justify-between h-20">
+          <!-- Mobile Menu Button -->
+          <div class="flex items-center md:hidden">
+            <button
+              class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white p-2"
+            >
+              <span class="material-icons-outlined">menu</span>
+            </button>
+          </div>
+
+          <!-- Left: Logo -->
+          <div class="flex-shrink-0 flex items-center ml-6">
+            <a href="/">
+              <h1
+                class="font-serif text-2xl font-bold tracking-widest text-primary dark:text-white"
+              >
+                CRISTOBAL
+              </h1>
+            </a>
+          </div>
+
+          <!-- Center: Desktop Links (Absolute Centered) -->
+          <div
+            class="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8 lg:space-x-12"
+          >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/"
+              >Ana Sayfa</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/products"
+              id="nav-products-text"
+              >Ürünler</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/about"
+              id="nav-about-text"
+              >Hakkımızda</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/contact"
+              id="nav-contact-text"
+              >İletişim</a
+            >
+          </div>
+
+          <!-- Right: Icons & User Menu -->
+          <div class="hidden md:flex items-center justify-end space-x-6">
+            <!-- User Menu Area -->
+            <div id="user-menu-container" class="flex items-center">
+              <!-- Will be populated by JS -->
+            </div>
+
+            <span class="text-gray-300">|</span>
+
+            <!-- Cart -->
+            <a
+              href="/cart"
+              class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white relative group"
+            >
+              <span class="material-icons-outlined text-2xl">shopping_bag</span>
+              <span class="ml-2 text-base font-medium">Sepetim</span>
+              <span
+                id="cart-badge"
+                class="hidden absolute -top-1 -right-1 h-2 w-2 bg-accent-gold rounded-full ring-2 ring-white dark:ring-surface-dark"
+              ></span>
+            </a>
+
+            <span class="text-gray-300">|</span>
+
+            <!-- Lang -->
+            <div class="relative group">
+              <button
+                class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white py-4"
+              >
+                <span class="material-icons-outlined text-2xl">language</span>
+                <span class="ml-2 text-base font-medium">Dil</span>
+              </button>
+              <div
+                class="absolute top-full right-0 h-4 w-full bg-transparent"
+              ></div>
+              <div
+                class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 ease-in-out transform translate-y-4 group-hover:translate-y-0 z-50"
+              >
+                <a
+                  href="/set-lang/tr"
+                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"
+                  >TR</a
+                >
+                <a
+                  href="/set-lang/en"
+                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"
+                  >EN</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Icons (Minimal) -->
+          <div class="flex items-center space-x-4 md:hidden">
+            <a href="/cart" class="text-gray-500"
+              ><span class="material-icons-outlined">shopping_bag</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="bg-background-light dark:bg-background-dark min-h-screen py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Sidebar -->
+          <div class="w-full lg:w-64">
+            <div
+              class="bg-white dark:bg-surface-dark shadow-sm border border-gray-100 p-6 sticky top-24"
+            >
+              <div class="flex items-center space-x-4 mb-8">
+                <div
+                  id="avatar-initial"
+                  class="h-12 w-12 bg-primary text-white flex items-center justify-center rounded-full text-xl font-serif"
+                ></div>
+                <div>
+                  <div
+                    id="sidebar-username"
+                    class="font-medium text-primary dark:text-white"
+                  ></div>
+                  <div id="sidebar-email" class="text-xs text-gray-500"></div>
+                </div>
+              </div>
+              <nav class="space-y-2">
+                <a
+                  href="/user/profile"
+                  class="block px-4 py-2 text-gray-600 hover:bg-gray-50 text-sm font-medium rounded-sm transition-colors"
+                  >Profil Bilgileri</a
+                >
+                <a
+                  href="/user/orders"
+                  class="block px-4 py-2 text-gray-600 hover:bg-gray-50 text-sm font-medium rounded-sm transition-colors"
+                  >Siparişlerim</a
+                >
+                <a
+                  href="/user/addresses"
+                  class="block px-4 py-2 text-gray-600 hover:bg-gray-50 text-sm font-medium rounded-sm transition-colors"
+                  >Adreslerim</a
+                >
+                <a
+                  href="/user/payment-methods"
+                  class="block px-4 py-2 bg-primary text-white text-sm font-medium rounded-sm"
+                  >Ödeme Yöntemlerim</a
+                >
+                <a
+                  href="/auth/logout"
+                  class="block px-4 py-2 text-red-500 hover:bg-red-50 text-sm font-medium rounded-sm transition-colors"
+                  >Çıkış Yap</a
+                >
+              </nav>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1">
+            <div
+              class="bg-white dark:bg-surface-dark shadow-sm border border-gray-100 overflow-hidden min-h-[500px]"
+            >
+              <div
+                class="p-6 border-b border-gray-100 flex justify-between items-center"
+              >
+                <h2 class="text-xl font-serif text-primary">
+                  Ödeme Yöntemlerim
+                </h2>
+                <button
+                  onclick="openModal()"
+                  class="bg-primary text-white px-4 py-2 text-xs uppercase tracking-wider hover:bg-black transition-colors"
+                >
+                  Yeni Kart Ekle
+                </button>
+              </div>
+              <div class="p-6">
+                <!-- Data List -->
+                <div
+                  id="data-list"
+                  class="grid grid-cols-1 md:grid-cols-2 gap-4"
+                >
+                  <!-- Loaded dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      id="modal"
+      class="hidden fixed z-[60] inset-0 overflow-y-auto"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+      >
+        <div
+          class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+          onclick="closeModal()"
+        ></div>
+        <span
+          class="hidden sm:inline-block sm:align-middle sm:h-screen"
+          aria-hidden="true"
+          >&#8203;</span
+        >
+        <div
+          class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        >
+          <form id="dataForm" onsubmit="saveData(event)">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <h3 class="text-lg leading-6 font-medium text-gray-900 mb-4">
+                Kart Ekle
+              </h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700"
+                    >Kart Başlığı (Örn: İş Bankası)</label
+                  >
+                  <input
+                    type="text"
+                    name="card_title"
+                    required
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700"
+                    >Kart Üzerindeki İsim</label
+                  >
+                  <input
+                    type="text"
+                    name="card_holder_name"
+                    required
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700"
+                    >Kart Numarası</label
+                  >
+                  <input
+                    type="text"
+                    name="card_number"
+                    maxlength="16"
+                    placeholder="16 hane"
+                    required
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700"
+                    >Son Kullanma Tarihi (AA/YY)</label
+                  >
+                  <input
+                    type="text"
+                    name="expiry_date"
+                    placeholder="MM/YY"
+                    required
+                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary sm:text-sm"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+            >
+              <button
+                type="submit"
+                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-black focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+              >
+                Kaydet
+              </button>
+              <button
+                type="button"
+                onclick="closeModal()"
+                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+              >
+                İptal
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/layout.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Load User Data
+        fetch("/api/user/me")
+          .then((res) => res.json())
+          .then((data) => {
+            const user = data.user;
+            const lang = data.lang;
+            if (!user) {
+              window.location.href = "/auth/login";
+              return;
+            }
+
+            // Sidebar
+            document.getElementById("sidebar-username").innerText =
+              user.username;
+            document.getElementById("sidebar-email").innerText = user.email;
+            document.getElementById("avatar-initial").innerText = user.username
+              .charAt(0)
+              .toUpperCase();
+
+            // Navbar Logic
+            renderUserMenu(user, lang);
+
+            loadData();
+          });
+      });
+
+      function loadData() {
+        fetch("/api/user/payment-methods")
+          .then((res) => res.json())
+          .then((items) => {
+            const list = document.getElementById("data-list");
+            list.innerHTML = "";
+            if (items.length === 0) {
+              list.innerHTML =
+                '<p class="text-gray-500 col-span-2 text-center py-8">Henüz kayıtlı ödeme yöntemi yok.</p>';
+              return;
+            }
+            items.forEach((item) => {
+              list.innerHTML += `
+                        <div class="border border-gray-200 p-4 rounded hover:border-primary transition-colors relative group bg-gradient-to-br from-gray-50 to-white">
+                            <h3 class="font-bold text-lg mb-4 text-primary">${item.card_title}</h3>
+                            <p class="text-xl font-mono text-gray-700 mb-4 tracking-wider">${item.card_number_masked}</p>
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase">Kart Sahibi</p>
+                                    <p class="text-sm font-medium">${item.card_holder_name}</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase">Tarih</p>
+                                    <p class="text-sm font-medium">${item.expiry_date}</p>
+                                </div>
+                            </div>
+                            <button onclick="deleteData(${item.id})" class="absolute top-4 right-4 text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="material-icons-outlined">delete</span>
+                            </button>
+                        </div>
+                    `;
+            });
+          });
+      }
+
+      function openModal() {
+        document.getElementById("modal").classList.remove("hidden");
+      }
+      function closeModal() {
+        document.getElementById("modal").classList.add("hidden");
+      }
+
+      function saveData(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData.entries());
+
+        fetch("/api/user/payment-methods", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            if (res.success) {
+              closeModal();
+              e.target.reset();
+              loadData();
+            } else {
+              alert("Hata: " + res.error);
+            }
+          });
+      }
+
+      function deleteData(id) {
+        if (!confirm("Silmek istediğinize emin misiniz?")) return;
+        fetch("/api/user/payment-methods/" + id, { method: "DELETE" })
+          .then((res) => res.json())
+          .then((res) => {
+            if (res.success) loadData();
+          });
+      }
+    </script>
+  </body>
+</html>
