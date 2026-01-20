@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ödeme - CRISTOBAL</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1a1a1a",
+              "accent-gold": "#C5A059",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .step-active {
+        border-color: #1a1a1a;
+        color: #1a1a1a;
+      }
+      .step-completed {
+        border-color: #10b981;
+        color: #10b981;
+      }
+      .step-inactive {
+        border-color: #e5e7eb;
+        color: #9ca3af;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 antialiased font-sans">
+    <!-- Progress Header -->
+    <div class="bg-white border-b border-gray-200 py-6 sticky top-0 z-10">
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="flex items-center justify-between relative">
+          <div
+            class="absolute left-0 top-1/2 w-full h-0.5 bg-gray-200 -z-10"
+          ></div>
+
+          <!-- Step 1 -->
+          <div
+            class="flex flex-col items-center bg-white px-2 cursor-pointer"
+            onclick="showStep(1)"
+          >
+            <div
+              id="icon-1"
+              class="w-8 h-8 rounded-full border-2 flex items-center justify-center bg-white step-active transition-colors"
+            >
+              <span class="material-icons-outlined text-sm">home</span>
+            </div>
+            <span class="text-xs font-bold mt-1 uppercase tracking-wider"
+              >Adres</span
+            >
+          </div>
+
+          <!-- Step 2 -->
+          <div
+            class="flex flex-col items-center bg-white px-2 cursor-pointer"
+            onclick="if (state.addressId) showStep(2);"
+          >
+            <div
+              id="icon-2"
+              class="w-8 h-8 rounded-full border-2 flex items-center justify-center bg-white step-inactive transition-colors"
+            >
+              <span class="material-icons-outlined text-sm">payment</span>
+            </div>
+            <span class="text-xs font-bold mt-1 uppercase tracking-wider"
+              >Ödeme</span
+            >
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flex flex-col items-center bg-white px-2">
+            <div
+              id="icon-3"
+              class="w-8 h-8 rounded-full border-2 flex items-center justify-center bg-white step-inactive transition-colors"
+            >
+              <span class="material-icons-outlined text-sm">check</span>
+            </div>
+            <span class="text-xs font-bold mt-1 uppercase tracking-wider"
+              >Onay</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-4 py-8 pb-24">
+      <!-- STEP 1: ADDRESS -->
+      <div id="step-1" class="step-content">
+        <h2 class="text-xl font-serif mb-6">Teslimat Adresi</h2>
+        <div id="address-list" class="space-y-4">
+          <!-- Loaded via JS -->
+        </div>
+
+        <button
+          onclick="toggleNewAddress()"
+          class="mt-6 flex items-center text-sm font-bold text-primary border-b border-primary pb-1"
+        >
+          <span class="material-icons-outlined mr-2">add</span> Yeni Adres Ekle
+        </button>
+
+        <!-- New Address Form -->
+        <div
+          id="new-address-form"
+          class="hidden mt-6 bg-white p-6 border border-gray-200 rounded shadow-sm"
+        >
+          <form id="addr-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="md:col-span-2">
+              <label
+                class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                >Adres Başlığı</label
+              >
+              <input
+                type="text"
+                name="title"
+                placeholder="Ev, İş vb."
+                required
+                class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div class="md:col-span-2">
+              <label
+                class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                >Açık Adres</label
+              >
+              <textarea
+                name="full_address"
+                rows="2"
+                required
+                class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+              ></textarea>
+            </div>
+            <div>
+              <label
+                class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                >Şehir</label
+              >
+              <input
+                type="text"
+                name="city"
+                required
+                class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                >İlçe</label
+              >
+              <input
+                type="text"
+                name="district"
+                required
+                class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div class="md:col-span-2">
+              <label
+                class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                >Telefon</label
+              >
+              <input
+                type="text"
+                name="phone"
+                required
+                class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+              />
+            </div>
+          </form>
+          <div class="mt-4 flex justify-end gap-3">
+            <button
+              onclick="toggleNewAddress()"
+              class="text-gray-500 text-sm hover:text-black"
+            >
+              İptal
+            </button>
+            <button
+              onclick="saveAddress()"
+              class="bg-primary text-white px-6 py-2 text-sm uppercase tracking-widest hover:bg-black"
+            >
+              Kaydet
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-8 flex justify-end">
+          <button
+            onclick="nextStep()"
+            class="bg-primary text-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-black shadow-lg"
+          >
+            Devam Et <span class="ml-2">→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: PAYMENT -->
+      <div id="step-2" class="hidden step-content">
+        <h2 class="text-xl font-serif mb-6">Ödeme Yöntemi</h2>
+        <div id="payment-list" class="space-y-4">
+          <!-- Loaded via JS -->
+        </div>
+
+        <button
+          onclick="toggleNewPayment()"
+          class="mt-6 flex items-center text-sm font-bold text-primary border-b border-primary pb-1"
+        >
+          <span class="material-icons-outlined mr-2">add</span> Yeni Kart Ekle
+        </button>
+
+        <!-- New Payment Form -->
+        <div
+          id="new-payment-form"
+          class="hidden mt-6 bg-white p-6 border border-gray-200 rounded shadow-sm"
+        >
+          <form id="pay-form" class="grid grid-cols-1 gap-4">
+            <div>
+              <label
+                class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                >Kart Başlığı</label
+              >
+              <input
+                type="text"
+                name="card_title"
+                placeholder="Kredi Kartım"
+                required
+                class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                >Kart Üzerindeki İsim</label
+              >
+              <input
+                type="text"
+                name="card_holder_name"
+                required
+                class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                >Kart Numarası</label
+              >
+              <input
+                type="text"
+                name="card_number"
+                maxlength="19"
+                placeholder="0000 0000 0000 0000"
+                required
+                class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label
+                  class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                  >Son Kullanma (AA/YY)</label
+                >
+                <input
+                  type="text"
+                  name="expiry_date"
+                  placeholder="MM/YY"
+                  required
+                  class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-xs font-bold uppercase text-gray-500 mb-1"
+                  >CVV</label
+                >
+                <input
+                  type="text"
+                  maxlength="3"
+                  placeholder="123"
+                  class="w-full border-gray-300 rounded-sm text-sm focus:ring-primary focus:border-primary"
+                />
+              </div>
+            </div>
+          </form>
+          <div class="mt-4 flex justify-end gap-3">
+            <button
+              onclick="toggleNewPayment()"
+              class="text-gray-500 text-sm hover:text-black"
+            >
+              İptal
+            </button>
+            <button
+              onclick="savePayment()"
+              class="bg-primary text-white px-6 py-2 text-sm uppercase tracking-widest hover:bg-black"
+            >
+              Kaydet
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-8 flex justify-between">
+          <button
+            onclick="showStep(1)"
+            class="text-gray-500 hover:text-primary"
+          >
+            ← Geri
+          </button>
+          <button
+            onclick="nextStep()"
+            class="bg-primary text-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-black shadow-lg"
+          >
+            Devam Et <span class="ml-2">→</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: SUMMARY -->
+      <div id="step-3" class="hidden step-content">
+        <h2 class="text-xl font-serif mb-6">Sipariş Özeti & Onay</h2>
+
+        <div class="bg-white p-6 border border-gray-200 rounded shadow-sm mb-6">
+          <h3
+            class="text-sm font-bold uppercase tracking-wider mb-4 border-b pb-2"
+          >
+            Seçimleriniz
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Teslimat Adresi</p>
+              <p id="summary-address" class="text-sm font-medium"></p>
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 mb-1">Ödeme Yöntemi</p>
+              <p id="summary-payment" class="text-sm font-medium"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 border border-gray-200 rounded shadow-sm">
+          <h3
+            class="text-sm font-bold uppercase tracking-wider mb-4 border-b pb-2"
+          >
+            Sepet Detayı
+          </h3>
+          <div id="summary-cart" class="space-y-3 mb-4">
+            <!-- Cart items loaded here -->
+          </div>
+          <div
+            class="border-t pt-4 flex justify-between items-center text-lg font-bold"
+          >
+            <span>Toplam Tutar</span>
+            <span id="summary-total">0 TL</span>
+          </div>
+        </div>
+
+        <div class="mt-8 flex justify-between items-center">
+          <button
+            onclick="showStep(2)"
+            class="text-gray-500 hover:text-primary"
+          >
+            ← Geri
+          </button>
+          <button
+            id="finish-btn"
+            onclick="placeOrder()"
+            class="bg-accent-gold text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-yellow-600 shadow-xl transform transition hover:-translate-y-1"
+          >
+            Siparişi Tamamla
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // State
+      const state = {
+        step: 1,
+        addressId: null,
+        paymentId: null,
+        addresses: [],
+        payments: [],
+        cart: [],
+      };
+
+      // Init
+      window.addEventListener("load", async () => {
+        await Promise.all([loadAddresses(), loadPayments(), loadCart()]);
+        showStep(1);
+      });
+
+      // Navigation
+      function showStep(step) {
+        if (step === 2 && !state.addressId)
+          return alert("Lütfen bir adres seçin.");
+        if (step === 3 && !state.paymentId)
+          return alert("Lütfen bir ödeme yöntemi seçin.");
+
+        state.step = step;
+        document
+          .querySelectorAll(".step-content")
+          .forEach((el) => el.classList.add("hidden"));
+        document.getElementById(`step-${step}`).classList.remove("hidden");
+
+        // Header Icons Update
+        updateHeader(step);
+
+        if (step === 3) renderSummary();
+      }
+
+      function updateHeader(step) {
+        for (let i = 1; i <= 3; i++) {
+          const icon = document.getElementById(`icon-${i}`);
+          icon.className =
+            "w-8 h-8 rounded-full border-2 flex items-center justify-center transition-colors ";
+          if (i < step) {
+            // Completed
+            icon.className += "bg-green-500 border-green-500 text-white";
+            icon.innerHTML =
+              '<span class="material-icons-outlined text-sm">check</span>';
+          } else if (i === step) {
+            // Active
+            icon.className += "bg-primary border-primary text-white";
+            icon.innerHTML = `<span class="material-icons-outlined text-sm">${i === 1 ? "home" : i === 2 ? "payment" : "check"}</span>`;
+          } else {
+            // Inactive
+            icon.className += "bg-white border-gray-200 text-gray-300";
+            icon.innerHTML = `<span class="material-icons-outlined text-sm">${i === 1 ? "home" : i === 2 ? "payment" : "check"}</span>`;
+          }
+        }
+      }
+
+      function nextStep() {
+        showStep(state.step + 1);
+      }
+
+      // --- Data Loading ---
+      async function loadAddresses() {
+        const res = await fetch("/api/user/addresses");
+        const data = await res.json();
+        state.addresses = data;
+        renderAddresses();
+      }
+
+      async function loadPayments() {
+        const res = await fetch("/api/user/payment-methods");
+        const data = await res.json();
+        state.payments = data;
+        renderPayments();
+      }
+
+      async function loadCart() {
+        const res = await fetch("/cart/data");
+        const data = await res.json();
+        state.cart = data;
+      }
+
+      // --- Renders ---
+      function renderAddresses() {
+        const container = document.getElementById("address-list");
+        container.innerHTML = "";
+        if (state.addresses.length === 0) {
+          container.innerHTML =
+            '<p class="text-sm text-gray-500 italic">Kayıtlı adresiniz bulunmamaktadır. Lütfen yeni ekleyin.</p>';
+          return;
+        }
+        state.addresses.forEach((addr) => {
+          const isSelected = state.addressId == addr.id;
+          container.innerHTML += `
+                    <div onclick="selectAddress(${addr.id})" class="border ${isSelected ? "border-primary ring-1 ring-primary bg-gray-50" : "border-gray-200"} rounded p-4 cursor-pointer hover:border-gray-300 transition-all">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold text-sm uppercase">${addr.title}</h4>
+                                <p class="text-sm text-gray-600 mt-1">${addr.full_address}</p>
+                                <p class="text-xs text-gray-400 mt-1">${addr.city} / ${addr.district}</p>
+                            </div>
+                            ${isSelected ? '<span class="material-icons-outlined text-primary">check_circle</span>' : ""}
+                        </div>
+                    </div>
+                `;
+        });
+      }
+
+      function renderPayments() {
+        const container = document.getElementById("payment-list");
+        container.innerHTML = "";
+        if (state.payments.length === 0) {
+          container.innerHTML =
+            '<p class="text-sm text-gray-500 italic">Kayıtlı kartınız bulunmamaktadır. Lütfen yeni ekleyin.</p>';
+          return;
+        }
+        state.payments.forEach((pay) => {
+          const isSelected = state.paymentId == pay.id;
+          container.innerHTML += `
+                    <div onclick="selectPayment(${pay.id})" class="border ${isSelected ? "border-primary ring-1 ring-primary bg-gray-50" : "border-gray-200"} rounded p-4 cursor-pointer hover:border-gray-300 transition-all">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <span class="material-icons-outlined text-gray-400 text-3xl mr-3">credit_card</span>
+                                <div>
+                                    <h4 class="font-bold text-sm uppercase">${pay.card_title}</h4>
+                                    <p class="text-sm text-gray-600 tracking-widest">${pay.card_number_masked}</p>
+                                </div>
+                            </div>
+                            ${isSelected ? '<span class="material-icons-outlined text-primary">check_circle</span>' : ""}
+                        </div>
+                    </div>
+                `;
+        });
+      }
+
+      function renderSummary() {
+        // Address
+        const addr = state.addresses.find((a) => a.id == state.addressId);
+        if (addr)
+          document.getElementById("summary-address").innerHTML =
+            `<b>${addr.title}</b><br>${addr.full_address}<br>${addr.city}/${addr.district}`;
+
+        // Payment
+        const pay = state.payments.find((p) => p.id == state.paymentId);
+        if (pay)
+          document.getElementById("summary-payment").innerHTML =
+            `<b>${pay.card_title}</b><br>${pay.card_number_masked}`;
+
+        // Cart
+        const cartDiv = document.getElementById("summary-cart");
+        cartDiv.innerHTML = "";
+        state.cart.cart.forEach((item) => {
+          cartDiv.innerHTML += `
+                    <div class="flex justify-between text-sm">
+                        <span>${item.product.name_tr} <span class="text-gray-400 text-xs">x${item.quantity}</span></span>
+                        <span>${item.lineTotal} TL</span>
+                    </div>
+                `;
+        });
+        cartDiv.innerHTML += `<div class="flex justify-between text-sm text-gray-500 pt-2 border-t border-dashed"><span>Kargo</span><span>${state.cart.shipping} TL</span></div>`;
+
+        document.getElementById("summary-total").innerText =
+          state.cart.total + " TL";
+      }
+
+      // --- Actions ---
+      function selectAddress(id) {
+        state.addressId = id;
+        renderAddresses();
+      }
+
+      function selectPayment(id) {
+        state.paymentId = id;
+        renderPayments();
+      }
+
+      function toggleNewAddress() {
+        document.getElementById("new-address-form").classList.toggle("hidden");
+      }
+
+      function toggleNewPayment() {
+        document.getElementById("new-payment-form").classList.toggle("hidden");
+      }
+
+      async function saveAddress() {
+        const form = document.getElementById("addr-form");
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        const res = await fetch("/api/user/addresses", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          toggleNewAddress();
+          form.reset();
+          loadAddresses();
+        } else {
+          alert("Adres eklenemedi.");
+        }
+      }
+
+      async function savePayment() {
+        const form = document.getElementById("pay-form");
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        const res = await fetch("/api/user/payment-methods", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) {
+          toggleNewPayment();
+          form.reset();
+          loadPayments();
+        } else {
+          alert("Kart eklenemedi.");
+        }
+      }
+
+      async function placeOrder() {
+        const btn = document.getElementById("finish-btn");
+        btn.disabled = true;
+        btn.innerText = "İşleniyor...";
+
+        try {
+          const res = await fetch("/cart/place-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              addressId: state.addressId,
+              paymentId: state.paymentId,
+            }),
+          });
+          const result = await res.json();
+
+          if (result.success) {
+            window.location.href = `/cart/success?orderId=${result.orderId}`;
+          } else {
+            alert("Hata: " + result.error);
+            btn.disabled = false;
+            btn.innerText = "Siparişi Tamamla";
+          }
+        } catch (e) {
+          console.error(e);
+          alert("Bir hata oluştu.");
+          btn.disabled = false;
+          btn.innerText = "Siparişi Tamamla";
+        }
+      }
+    </script>
+  </body>
+</html>

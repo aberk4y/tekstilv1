@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sipariş Alındı - CRISTOBAL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1a1a1a",
+              "accent-gold": "#C5A059",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 flex items-center justify-center min-h-screen">
+    <div class="max-w-md w-full bg-white shadow-lg p-8 text-center rounded-sm">
+      <div class="mb-6">
+        <span class="material-icons-outlined text-6xl text-green-500"
+          >check_circle</span
+        >
+      </div>
+      <h1 class="text-2xl font-serif text-primary mb-2">Siparişiniz Alındı!</h1>
+      <p class="text-gray-500 text-sm mb-8">
+        Teşekkür ederiz. Siparişiniz başarıyla oluşturuldu ve en kısa sürede
+        hazırlanmaya başlanacaktır.
+      </p>
+
+      <div class="bg-gray-50 p-4 rounded mb-6 border border-gray-100">
+        <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">
+          Sipariş Numarası
+        </p>
+        <p class="text-xl font-bold text-primary" id="order-id">#---</p>
+      </div>
+
+      <div class="space-y-3">
+        <a
+          href="/user/orders"
+          class="block w-full bg-primary text-white py-3 text-sm uppercase tracking-widest hover:bg-black transition-colors"
+          >Siparişlerim</a
+        >
+        <a
+          href="/"
+          class="block w-full text-primary border border-primary py-3 text-sm uppercase tracking-widest hover:bg-gray-50 transition-colors"
+          >Ana Sayfaya Dön</a
+        >
+      </div>
+    </div>
+
+    <script>
+      // Get order ID from URL query param
+      const urlParams = new URLSearchParams(window.location.search);
+      const orderId = urlParams.get("orderId");
+      if (orderId) {
+        document.getElementById("order-id").innerText = "#" + orderId;
+      }
+    </script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -227,6 +227,51 @@
                 <span>Toplam</span>
                 <span id="cart-total">0 TL</span>
               </div>
+
+              <!-- Checkout Options (Address & Payment) -->
+              <div
+                id="checkout-options"
+                class="hidden space-y-4 mb-6 pt-4 border-t border-gray-100"
+              >
+                <!-- Address Selection -->
+                <div>
+                  <label
+                    class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2"
+                    >Teslimat Adresi</label
+                  >
+                  <select
+                    id="address-select"
+                    class="block w-full text-sm border-gray-200 rounded focus:border-primary focus:ring-primary bg-white h-10 px-2"
+                  >
+                    <option value="">Adres Seçiniz</option>
+                  </select>
+                  <div
+                    id="address-error"
+                    class="hidden text-xs text-red-500 mt-1"
+                  >
+                    Lütfen teslimat adresi seçiniz.
+                  </div>
+                </div>
+                <!-- Payment Selection -->
+                <div>
+                  <label
+                    class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2"
+                    >Ödeme Yöntemi</label
+                  >
+                  <select
+                    id="payment-select"
+                    class="block w-full text-sm border-gray-200 rounded focus:border-primary focus:ring-primary bg-white h-10 px-2"
+                  >
+                    <option value="">Kart Seçiniz</option>
+                  </select>
+                  <div
+                    id="payment-error"
+                    class="hidden text-xs text-red-500 mt-1"
+                  >
+                    Lütfen ödeme yöntemi seçiniz.
+                  </div>
+                </div>
+              </div>
               <button
                 id="checkout-btn"
                 class="w-full bg-primary text-white py-4 text-sm uppercase tracking-widest hover:bg-black transition-colors shadow-lg"
@@ -392,7 +437,7 @@
 
             // Footer Logic
             const footerAccountLinks = document.getElementById(
-              "footer-account-links"
+              "footer-account-links",
             );
             if (footerAccountLinks) {
               if (user) {
@@ -433,6 +478,49 @@
         document.getElementById("cart-content").classList.add("flex");
         renderItems(data.cart);
         renderSummary(data.subtotal, data.shipping, data.total);
+
+        // Render Checkout Options
+        const optionsDiv = document.getElementById("checkout-options");
+        const addrSelect = document.getElementById("address-select");
+        const paySelect = document.getElementById("payment-select");
+
+        if (
+          data.addresses &&
+          (data.addresses.length > 0 || data.paymentMethods.length > 0)
+        ) {
+          optionsDiv.classList.remove("hidden");
+
+          // Addresses
+          addrSelect.innerHTML = '<option value="">Adres Seçiniz</option>';
+          if (data.addresses.length > 0) {
+            data.addresses.forEach((a) => {
+              addrSelect.innerHTML += `<option value="${a.id}">${a.title} - ${a.city}</option>`;
+            });
+          } else {
+            addrSelect.innerHTML =
+              '<option value="" disabled>Kayıtlı adres bulunamadı</option>';
+          }
+
+          // Payment
+          paySelect.innerHTML = '<option value="">Kart Seçiniz</option>';
+          if (data.paymentMethods.length > 0) {
+            data.paymentMethods.forEach((p) => {
+              paySelect.innerHTML += `<option value="${p.id}">${p.card_title}</option>`;
+            });
+          } else {
+            paySelect.innerHTML =
+              '<option value="" disabled>Kayıtlı kart bulunamadı</option>';
+          }
+        } else if (data.addresses) {
+          // User logged in but no data, still show the section optionally or maybe hide it?
+          // The user request says "kayıtlı adres ve ödeme yöntemlerinden birini seçmeli", implying they exist.
+          // If arrays are empty, we show appropriate message in dropdown or user can go to profile.
+          optionsDiv.classList.remove("hidden");
+          addrSelect.innerHTML =
+            '<option value="" disabled>Kayıtlı adres yok (Profilinizden ekleyin)</option>';
+          paySelect.innerHTML =
+            '<option value="" disabled>Kayıtlı kart yok (Profilinizden ekleyin)</option>';
+        }
       }
 
       function renderItems(cart) {
@@ -467,8 +555,8 @@
                     }</td>
                     <td class="px-6 py-6 text-right">
                        <button onclick="removeItem(${item.product.id}, '${
-            item.size
-          }')" class="text-gray-400 hover:text-red-500 transition-colors">
+                         item.size
+                       }')" class="text-gray-400 hover:text-red-500 transition-colors">
                            <span class="material-icons-outlined">delete</span>
                        </button>
                     </td>
@@ -495,7 +583,45 @@
       }
 
       async function checkout() {
-        const res = await fetch("/cart/checkout", { method: "POST" });
+        // Validation
+        const optionsDiv = document.getElementById("checkout-options");
+        let body = {};
+
+        if (!optionsDiv.classList.contains("hidden")) {
+          const addrId = document.getElementById("address-select").value;
+          const payId = document.getElementById("payment-select").value;
+
+          let valid = true;
+          // Check if disabled (no address)
+          const addrDisabled =
+            document.getElementById("address-select").options[0].disabled;
+
+          if (!addrId && !addrDisabled) {
+            document.getElementById("address-error").classList.remove("hidden");
+            valid = false;
+          } else {
+            document.getElementById("address-error").classList.add("hidden");
+          }
+
+          const payDisabled =
+            document.getElementById("payment-select").options[0].disabled;
+          if (!payId && !payDisabled) {
+            document.getElementById("payment-error").classList.remove("hidden");
+            valid = false;
+          } else {
+            document.getElementById("payment-error").classList.add("hidden");
+          }
+
+          if (!valid) return;
+
+          body = { addressId: addrId, paymentMethodId: payId };
+        }
+
+        const res = await fetch("/cart/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
         const data = await res.json();
 
         if (data.success) {

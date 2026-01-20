@@ -183,38 +183,46 @@ router.post('/product/update/:id', (req, res) => {
     });
 });
 
-// POST Delete Product
-router.post('/product/delete/:id', (req, res) => {
+// DELETE Product
+router.delete('/product/delete/:id', (req, res) => {
     const productId = req.params.id;
 
     // 1. DELETE FROM order_items (Force Delete History)
     db.run("DELETE FROM order_items WHERE product_id = ?", [productId], (err) => {
         if (err) {
             console.error("Error deleting order items:", err);
-            return res.status(500).json({ error: 'Sipariş kayıtları silinemedi.' });
+            return res.status(500).json({ success: false, message: 'Sipariş kayıtları silinemedi.' });
         }
 
         // 2. Delete associated sizes
         db.run("DELETE FROM product_sizes WHERE product_id = ?", [productId], (err) => {
             if (err) {
                 console.error("Error deleting sizes:", err);
-                return res.status(500).json({ error: 'Ürün bedenleri silinemedi.' });
+                return res.status(500).json({ success: false, message: 'Ürün bedenleri silinemedi.' });
             }
 
             // 3. Delete associated images
             db.run("DELETE FROM product_images WHERE product_id = ?", [productId], (err) => {
                 if (err) {
                     console.error("Error deleting images:", err);
-                    return res.status(500).json({ error: 'Ürün resimleri silinemedi.' });
+                    return res.status(500).json({ success: false, message: 'Ürün resimleri silinemedi.' });
                 }
 
-                // 4. Delete the product
-                db.run("DELETE FROM products WHERE id = ?", [productId], (err) => {
+                // 4. Delete the product (Using functionality requested by user)
+                // Hocanın istediği Template Literals (Backtick) kullanımı:
+                const query = `DELETE FROM products WHERE id = ?`;
+
+                db.run(query, [productId], function(err) {
                     if(err) {
                         console.error("Delete Product Error:", err);
-                        return res.status(500).json({ error: 'Silme Hatası: ' + err.message });
+                        return res.status(500).json({ success: false, message: 'Silme Hatası: ' + err.message });
                     }
-                    res.json({ success: true, message: 'Ürün ve tüm geçmiş verileri kalıcı olarak silindi.' });
+                    
+                    if (this.changes > 0) {
+                        res.json({ success: true, message: 'Ürün başarıyla silindi.' });
+                    } else {
+                        res.json({ success: false, message: 'Ürün bulunamadı veya daha önce silinmiş.' });
+                    }
                 });
             });
         });

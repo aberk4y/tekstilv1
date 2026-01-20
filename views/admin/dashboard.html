@@ -821,8 +821,9 @@
       async function deleteProduct(id) {
         if (confirm("Bu ürünü silmek istediğinize emin misiniz?")) {
           try {
+            // Hocanın istediği fetch() yapısı ve method: DELETE
             const res = await fetch(`/admin/product/delete/${id}`, {
-              method: "POST",
+              method: "DELETE", // Changed from POST to DELETE
             });
 
             // Check if response is JSON
@@ -830,14 +831,15 @@
             if (contentType && contentType.indexOf("application/json") !== -1) {
               const result = await res.json();
               if (result.success) {
-                fetchData();
+                alert('Ürün başarıyla silindi.');
+                location.reload(); // Refresh to update list
               } else {
-                alert(result.error);
+                alert('Silme işlemi başarısız: ' + (result.message || result.error));
               }
             } else {
-              const text = await res.text();
-              console.error("Non-JSON Response:", text);
-              alert("Sunucu hatası (JSON değil): " + res.status);
+              // Fallback for non-JSON errors
+              console.error("Non-JSON Response status:", res.status);
+              alert("Sunucu hatası: " + res.status);
             }
           } catch (error) {
             console.error("Delete Fetch Error:", error);

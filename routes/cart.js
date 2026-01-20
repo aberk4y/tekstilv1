@@ -47,7 +47,31 @@ router.get('/data', async (req, res) => {
          shipping = 0;
     }
 
-    res.json({ cart: cartItems, subtotal, shipping, total });
+    // Fetch User Addresses and Payment Methods if Logged In
+    let addresses = null;
+    let paymentMethods = null;
+    if (req.session.user) {
+        addresses = [];
+        paymentMethods = [];
+        try {
+            addresses = await new Promise((resolve, reject) => {
+                db.all("SELECT * FROM addresses WHERE user_id = ?", [req.session.user.id], (err, rows) => {
+                    if (err) reject(err);
+                    else resolve(rows || []);
+                });
+            });
+            paymentMethods = await new Promise((resolve, reject) => {
+                db.all("SELECT * FROM payment_methods WHERE user_id = ?", [req.session.user.id], (err, rows) => {
+                    if (err) reject(err);
+                    else resolve(rows || []);
+                });
+            });
+        } catch (e) {
+            console.error("Error fetching user details for cart:", e);
+        }
+    }
+
+    res.json({ cart: cartItems, subtotal, shipping, total, addresses, paymentMethods });
 });
 
 // POST Add to Cart
@@ -79,41 +103,50 @@ router.post('/remove', (req, res) => {
     res.json({ success: true });
 });
 
-// POST Checkout
-router.post('/checkout', async (req, res) => {
+// GET Checkout Page
+router.get('/checkout', (req, res) => {
+    if (!req.session.user) return res.redirect('/auth/login');
+    const path = require('path');
+    res.sendFile(path.join(__dirname, '../views/public/checkout.html'));
+});
+
+// GET Success Page
+router.get('/success', (req, res) => {
+     const path = require('path');
+     res.sendFile(path.join(__dirname, '../views/public/success.html'));
+});
+
+// POST Place Order (Final Step)
+router.post('/place-order', async (req, res) => {
     if (!req.session.user) return res.status(401).json({ error: 'Giriş yapmalısınız.' });
     
-    // 1. Capture Cart
+    // 1. Capture Payload
+    const { addressId, paymentId } = req.body;
+    if (!addressId || !paymentId) {
+        return res.status(400).json({ error: 'Adres ve ödeme yöntemi zorunludur.' });
+    }
+
+    // 2. Capture Cart
     const cart = req.session.cart || [];
     if (cart.length === 0) return res.status(400).json({ error: 'Sepet boş.' });
 
-    // 2. Optimistic Clear (Prevent Double Submit Race)
-    // We save the cart to a local variable (cart) and clear the session immediately.
-    // If anything fails, we must restore it.
+    // 3. Optimistic Clear
     req.session.cart = [];
-
-    // Helper to restore cart on error
-    const restoreCart = () => {
-        req.session.cart = cart;
-    };
+    const restoreCart = () => { req.session.cart = cart; };
 
     try {
-        // 3. Fetch Products & Calculate Total
-        // Fetch all products in parallel
+        // 4. Fetch Products & Calculate Total
         const productPromises = cart.map(item => getProduct(item.productId));
         const products = await Promise.all(productPromises);
 
         let total = 0;
         const validItems = [];
 
-        // Validate products and calculate total
         for (let i = 0; i < products.length; i++) {
             const product = products[i];
             const item = cart[i];
             
             if (!product) {
-                // Product might have been deleted. Skip or Error? 
-                // Currently skipping implies free item or error. Let's error to be safe.
                 restoreCart();
                 return res.status(400).json({ error: `Ürün bulunamadı: ID ${item.productId}` });
             }
@@ -127,40 +160,27 @@ router.post('/checkout', async (req, res) => {
         
         total += 300; // Shipping
 
-        // 4. Database Transaction
-        // Wrap everything in a Promise to use await with standard sqlite3 callbacks if needed, 
-        // or just use await if using a wrapper (we seem to be using standard sqlite3 which is callback based).
-        // We'll wrap the transaction flow in a single Promise for clean async/await usage.
-
+        // 5. Database Transaction
         await new Promise((resolve, reject) => {
             db.serialize(() => {
-                // A. Begin
                 db.run("BEGIN TRANSACTION");
 
-                // B. Insert Order
-                db.run("INSERT INTO orders (user_id, total_amount, status) VALUES (?, ?, ?)", 
-                    [req.session.user.id, total, 'Hazırlanıyor'], 
+                // Insert Order with Address and Payment IDs
+                db.run("INSERT INTO orders (user_id, total_amount, status, address_id, payment_id) VALUES (?, ?, ?, ?, ?)", 
+                    [req.session.user.id, total, 'Hazırlanıyor', addressId, paymentId], 
                     function(err) {
-                        if (err) {
-                            return reject(err); // Will trigger rollback in catch
-                        }
-                        const orderId = this.lastID;
-
-                        // C. Insert Items
-                        const stmt = db.prepare("INSERT INTO order_items (order_id, product_id, quantity, price, size) VALUES (?, ?, ?, ?, ?)");
+                        if (err) return reject(err);
                         
-                        // We use a counter or promise loop to track statement completion? 
-                        // Parallel execution inside serialization might be tricky. 
-                        // It's safer to execute sequentially or track specific completion.
+                        const orderId = this.lastID;
+                        const stmt = db.prepare("INSERT INTO order_items (order_id, product_id, quantity, price, size) VALUES (?, ?, ?, ?, ?)");
                         
                         let completed = 0;
                         let hasError = false;
 
                         if (validItems.length === 0) {
-                             // Should not happen check above
                              db.run("COMMIT", (err) => {
                                 if (err) reject(err);
-                                else resolve();
+                                else resolve(orderId);
                              });
                              return;
                         }
@@ -176,10 +196,9 @@ router.post('/checkout', async (req, res) => {
                                     completed++;
                                     if (completed === validItems.length) {
                                         stmt.finalize();
-                                        // D. Commit
                                         db.run("COMMIT", (err) => {
                                             if (err) reject(err);
-                                            else resolve();
+                                            else resolve(orderId);
                                         });
                                     }
                                 }
@@ -191,11 +210,10 @@ router.post('/checkout', async (req, res) => {
         });
 
         // Success
-        res.json({ success: true, redirectUrl: '/user/orders' });
+        res.json({ success: true, orderId: orderId }); // Send orderId for success page
 
     } catch (err) {
-        console.error("Checkout Error:", err);
-        // Rollback
+        console.error("Place Order Error:", err);
         db.run("ROLLBACK");
         restoreCart();
         res.status(500).json({ error: 'Sipariş oluşturulurken bir hata oluştu.' });
