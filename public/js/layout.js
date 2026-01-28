@@ -38,3 +38,14 @@ function renderUserMenu(user, lang) {
         </div>`;
     }
 }
+
+// Global Laptop Scaling
+const style = document.createElement('style');
+style.textContent = `
+  @media (min-width: 1024px) and (max-width: 1536px) {
+    body {
+        zoom: 0.80;
+    }
+  }
+`;
+document.head.appendChild(style);
