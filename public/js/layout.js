@@ -1,1 +1,40 @@
-function renderUserMenu(user, lang) {    const userMenuContainer = document.getElementById("user-menu-container");    if (!userMenuContainer) return;    if (user) {        userMenuContainer.innerHTML = `        <div class="relative group">            <button class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white py-4">                <span class="material-icons-outlined text-2xl">perm_identity</span>                <span class="ml-2 text-base font-medium hidden md:block">${user.username}</span>            </button>            <div class="absolute top-full right-0 h-2 w-full bg-transparent"></div>            <div class="absolute right-0 top-full mt-2 w-56 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-xl rounded-sm py-2 hidden group-hover:block z-50">                <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-800">                    <p class="text-xs text-gray-500">${lang === "en" ? "Welcome," : "Hoşgeldin,"}</p>                    <p class="text-base font-bold text-primary dark:text-white truncate">${user.username}</p>                </div>                ${                  user.role === "admin"                    ? `<a href="/admin" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">dashboard</span>Admin</a>`                    : `                    <a href="/user/profile" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">person</span>Profil Bilgileri</a>                    <a href="/user/orders" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">shopping_bag</span>Siparişlerim</a>                    <a href="/user/addresses" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">location_on</span>Adreslerim</a>                    <a href="/user/payment-methods" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">credit_card</span>Ödeme Yöntemlerim</a>                    `                }                <div class="border-t border-gray-100 dark:border-gray-800 mt-2 pt-2">                    <a href="/auth/logout" class="block px-4 py-2 text-base text-red-600 hover:bg-red-50 transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">logout</span>Çıkış Yap</a>                </div>            </div>        </div>`;    } else {        userMenuContainer.innerHTML = `        <div class="flex items-center space-x-4">            <a href="/auth/login" class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">Giriş Yap</a>            <span class="text-gray-300">|</span>            <a href="/auth/register" class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors">Kayıt Ol</a>        </div>`;    }}
+function renderUserMenu(user, lang) {
+    const userMenuContainer = document.getElementById("user-menu-container");
+    if (!userMenuContainer) return;
+    if (user) {
+        userMenuContainer.innerHTML = `
+        <div class="relative group">
+            <button class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white py-4 lg:py-2">
+                <span class="material-icons-outlined text-2xl lg:text-xl xl:text-2xl">perm_identity</span>
+                <span class="ml-2 text-base font-medium hidden md:block lg:text-xs xl:text-sm">${user.username}</span>
+            </button>
+            <div class="absolute top-full right-0 h-2 w-full bg-transparent"></div>
+            <div class="absolute right-0 top-full mt-2 w-56 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-xl rounded-sm py-2 hidden group-hover:block z-50">
+                <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-800">
+                    <p class="text-xs text-gray-500">${lang === "en" ? "Welcome," : "Hoşgeldin,"}</p>
+                    <p class="text-base font-bold text-primary dark:text-white truncate">${user.username}</p>
+                </div>
+                ${
+                  user.role === "admin"
+                    ? `<a href="/admin" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">dashboard</span>Admin</a>`
+                    : `
+                    <a href="/user/profile" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">person</span>Profil Bilgileri</a>
+                    <a href="/user/orders" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">shopping_bag</span>Siparişlerim</a>
+                    <a href="/user/addresses" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">location_on</span>Adreslerim</a>
+                    <a href="/user/payment-methods" class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50 hover:text-primary transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">credit_card</span>Ödeme Yöntemlerim</a>
+                    `
+                }
+                <div class="border-t border-gray-100 dark:border-gray-800 mt-2 pt-2">
+                    <a href="/auth/logout" class="block px-4 py-2 text-base text-red-600 hover:bg-red-50 transition-colors"><span class="material-icons-outlined text-base mr-2 align-text-bottom">logout</span>Çıkış Yap</a>
+                </div>
+            </div>
+        </div>`;
+    } else {
+        userMenuContainer.innerHTML = `
+        <div class="flex items-center space-x-4 lg:space-x-2 xl:space-x-4">
+            <a href="/auth/login" class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors lg:text-xs xl:text-sm">Giriş Yap</a>
+            <span class="text-gray-300">|</span>
+            <a href="/auth/register" class="text-base font-medium text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors lg:text-xs xl:text-sm">Kayıt Ol</a>
+        </div>`;
+    }
+}

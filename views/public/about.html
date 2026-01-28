@@ -1,1 +1,495 @@
-<!doctype html><html lang="tr" class="scroll-smooth">  <head>    <meta charset="UTF-8" />    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <title>CRISTOBAL - Hakkımızda</title>    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>    <link      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"      rel="stylesheet"    />    <link      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"      rel="stylesheet"    />    <link      rel="stylesheet"      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"    />    <script>      tailwind.config = {        darkMode: "class",        theme: {          extend: {            colors: {              primary: "#1a1a1a",              "background-light": "#fcfcfc",              "background-dark": "#121212",              "surface-light": "#f5f3ef",              "surface-dark": "#1e1e1e",              "accent-gold": "#C5A059",            },            fontFamily: {              sans: ["Montserrat", "sans-serif"],              serif: ["Playfair Display", "serif"],              display: ["Playfair Display", "serif"],            },            borderRadius: {              DEFAULT: "2px",            },            letterSpacing: {              widest: ".25em",            },          },        },      };    </script>  </head>  <body    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 antialiased font-sans transition-colors duration-300"  >    <div      class="bg-primary text-white text-xs tracking-widest text-center py-2 uppercase font-medium"    >      1000$ ve Üzeri Siparişlerde Ücretsiz Kargo    </div>    <nav      class="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-300"    >      <div class="w-full px-8 sm:px-10 lg:px-12">        <div class="relative flex items-center justify-between h-20">          <div class="flex items-center md:hidden">            <button              class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white p-2"            >              <span class="material-icons-outlined">menu</span>            </button>          </div>          <div class="flex-shrink-0 flex items-center ml-6">            <a href="/">              <h1                class="font-serif text-2xl font-bold tracking-widest text-primary dark:text-white"              >                CRISTOBAL              </h1>            </a>          </div>          <div            class="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-8 lg:space-x-12"          >            <a              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"              href="/"              >Ana Sayfa</a            >            <a              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"              href="/products"              id="nav-products-text"              >Ürünler</a            >            <a              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"              href="/about"              id="nav-about-text"              >Hakkımızda</a            >            <a              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"              href="/contact"              id="nav-contact-text"              >İletişim</a            >          </div>          <div class="hidden md:flex items-center justify-end space-x-6">            <div id="user-menu-container" class="flex items-center"></div>            <span class="text-gray-300">|</span>            <a              href="/cart"              class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white relative group"            >              <span class="material-icons-outlined text-2xl">shopping_bag</span>              <span class="ml-2 text-base font-medium">Sepetim</span>              <span                id="cart-badge"                class="hidden absolute -top-1 -right-1 h-2 w-2 bg-accent-gold rounded-full ring-2 ring-white dark:ring-surface-dark"              ></span>            </a>            <span class="text-gray-300">|</span>            <div class="relative group">              <button                class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white py-4"              >                <span class="material-icons-outlined text-2xl">language</span>                <span class="ml-2 text-base font-medium">Dil</span>              </button>              <div                class="absolute top-full right-0 h-4 w-full bg-transparent"              ></div>              <div                class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 ease-in-out transform translate-y-4 group-hover:translate-y-0 z-50"              >                <a                  href="/set-lang/tr"                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"                  >TR</a                >                <a                  href="/set-lang/en"                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"                  >EN</a                >              </div>            </div>          </div>          <div class="flex items-center space-x-4 md:hidden">            <a href="/cart" class="text-gray-500"              ><span class="material-icons-outlined">shopping_bag</span></a            >          </div>        </div>      </div>    </nav>    <div class="relative h-[60vh] overflow-hidden">      <div class="absolute inset-0 bg-black/40 z-10"></div>      <img        src="/images/hero-bg.jpg"        alt="Cristobal Factory"        class="w-full h-full object-cover object-[50%_35%] fixed-parallax"      />      <div class="absolute inset-0 flex items-center justify-center z-20">        <div class="text-center px-4">          <h1            class="text-6xl md:text-8xl font-serif text-white tracking-widest uppercase mb-6 drop-shadow-lg"          >            CRISTOBAL          </h1>          <p            class="text-white/90 text-sm md:text-lg tracking-[0.3em] font-light uppercase"          >            Sanatın ve Ustalığın Buluşması          </p>        </div>      </div>    </div>    <div class="bg-white dark:bg-background-dark">      <section class="max-w-4xl mx-auto px-4 pt-32 pb-10 text-center">        <h2          class="font-serif text-5xl md:text-6xl text-primary dark:text-white mb-8 uppercase tracking-widest"        >          Hakkımızda        </h2>        <div class="h-0.5 w-24 bg-primary dark:bg-white mx-auto mb-12"></div>        <p          class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed font-light mb-8"        >          2008 yılında kurulmuş olan <strong>HSY Tekstil</strong>, dış giyim          sektöründe kalite ve inovasyonu bir araya getirerek öne çıkan bir          oyuncudur. <strong>Cristobal</strong> markası ile sunduğumuz mont,          kaban ve outerwear koleksiyonlarımız, her sezon modanın dinamiklerine          uygun şekilde tasarlanmakta ve yüksek kaliteli malzemelerle          üretilmektedir.        </p>      </section>      <section class="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 mb-8">        <div class="max-w-7xl mx-auto">          <div class="grid grid-cols-1 md:grid-cols-6 gap-6">            <div              class="overflow-hidden rounded-sm shadow-xl hover:shadow-2xl hover:shadow-primary/80 transition-all duration-500 h-[850px] md:col-span-1 group"            >              <img                src="/images/cristechsol.webp"                alt="Cristech Detail Left"                class="w-full h-full grayscale-[30%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"              />            </div>            <div class="flex flex-col gap-5 h-[850px] md:col-span-4">              <div                class="overflow-hidden rounded-sm shadow-xl hover:shadow-2xl hover:shadow-primary/80 transition-all duration-500 h-[415px] w-full group"              >                <img                  src="/images/cristech.webp"                  alt="Cristech Technology"                  class="w-full h-full grayscale-[30%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"                />              </div>              <div                class="overflow-hidden rounded-sm shadow-xl hover:shadow-2xl hover:shadow-primary/80 transition-all duration-500 h-[415px] w-full group"              >                <img                  src="/images/crisortaalt.webp"                  alt="Cristech Coats"                  class="w-full h-full grayscale-[30%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"                />              </div>            </div>            <div              class="overflow-hidden rounded-sm shadow-xl hover:shadow-2xl hover:shadow-primary/80 transition-all duration-500 h-[850px] md:col-span-1 group"            >              <img                src="/images/cristechsag.webp"                alt="Cristech Detail Right"                class="w-full h-full grayscale-[30%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"              />            </div>          </div>        </div>      </section>      <section class="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 pt-10 pb-20">        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">          <div            class="bg-primary text-white p-12 flex flex-col items-center text-center group transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl"          >            <span              class="material-icons-outlined text-5xl mb-8 group-hover:scale-110 transition-transform duration-500"              >flag</span            >            <h3 class="text-2xl font-serif uppercase tracking-widest mb-6">              Misyonumuz            </h3>            <div              class="w-12 h-px bg-white/30 mb-8 group-hover:w-24 transition-all duration-500"            ></div>            <p class="text-gray-300 font-light leading-relaxed">              Tekstil dünyasında standartların ötesine geçerek, stil sahibi              bireyler için konforu ve şıklığı bir araya getiren özgün              tasarımlar sunmak. Sadece giysi değil, bir yaşam tarzı              tasarlıyoruz.            </p>          </div>          <div            class="bg-primary text-white p-12 flex flex-col items-center text-center group transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl"          >            <span              class="material-icons-outlined text-5xl mb-8 group-hover:scale-110 transition-transform duration-500"              >visibility</span            >            <h3 class="text-2xl font-serif uppercase tracking-widest mb-6">              Vizyonumuz            </h3>            <div              class="w-12 h-px bg-white/30 mb-8 group-hover:w-24 transition-all duration-500"            ></div>            <p class="text-gray-300 font-light leading-relaxed">              Global ölçekte tanınan, kalitesi ve tasarım diliyle ilham veren              bir marka olmak. Sürdürülebilir üretim teknikleriyle geleceği              şekillendirirken, geçmişin ustalığını modern dünyaya taşımak.            </p>          </div>        </div>        <div class="max-w-4xl mx-auto mb-24">          <div            class="bg-primary text-white p-12 flex flex-col items-center text-center group transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl w-full"          >            <span              class="material-icons-outlined text-5xl mb-8 group-hover:scale-110 transition-transform duration-500"              >diamond</span            >            <h3 class="text-2xl font-serif uppercase tracking-widest mb-6">              Değerlerimiz            </h3>            <div              class="w-12 h-px bg-white/30 mb-8 group-hover:w-24 transition-all duration-500"            ></div>            <p class="text-gray-300 font-light leading-relaxed">              Kalite, şıklık ve sürdürülebilirlik ilkelerimizle, doğaya saygılı              üretim yöntemleri kullanarak sağlıklı bir gelecek için değer              yaratıyoruz.            </p>          </div>        </div>        <div class="text-center flex flex-col items-center space-y-12">          <p class="text-3xl font-serif italic text-primary dark:text-white">            "CRISTOBAL : Mükemmelliğin Dokusu."          </p>          <img            src="/images/cr.png"            alt="CR Logo"            class="w-56 h-auto opacity-90 hover:opacity-100 transition-all duration-300 transform scale-x-125 mb-8"          />          <a            href="/contact"            class="inline-block border border-primary dark:border-white text-primary dark:text-white py-5 px-16 text-sm uppercase tracking-[0.25em] hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all duration-300 transform hover:-translate-y-1"          >            Bizimle İletişime Geçin</a          >        </div>      </section>    </div>    <footer class="bg-primary text-white pt-16 pb-8">      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">          <div class="md:col-span-1">            <h4 class="text-xl font-serif mb-6">CRISTOBAL</h4>            <p class="text-gray-400 text-xs leading-relaxed mb-6">              Seçici bireyler için tasarlanmış birinci sınıf dış giyim. Her              dikişte kalite, zarafet ve dayanıklılık.            </p>            <div class="flex space-x-4">              <a                href="https://www.instagram.com/aberk4y/"                target="_blank"                class="text-gray-400 hover:text-white transition-colors"                ><i class="fab fa-instagram text-xl"></i              ></a>              <a                href="https://www.facebook.com/people/Cristobal/61570013973632/?mibextid=LQQJ4d&rdid=gX9fM7LrSxmViL8X&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CtnvyTT8W%2F%3Fmibextid%3DLQQJ4d"                target="_blank"                class="text-gray-400 hover:text-white transition-colors"                ><i class="fab fa-facebook-f text-xl"></i              ></a>              <a                href="https://tr.pinterest.com/cristobalofficial/_created"                target="_blank"                class="text-gray-400 hover:text-white transition-colors"                ><i class="fab fa-pinterest text-xl"></i              ></a>            </div>          </div>          <div>            <h4              class="text-white text-xs uppercase tracking-widest mb-6 font-medium"            >              Alışveriş            </h4>            <ul class="space-y-4">              <li>                <a                  class="text-gray-400 text-sm hover:text-white transition-colors"                  href="/products"                  >Tüm Ürünler</a                >              </li>              <li>                <a                  class="text-gray-400 text-sm hover:text-white transition-colors"                  href="/products?category=Kaban"                  >Kabanlar</a                >              </li>              <li>                <a                  class="text-gray-400 text-sm hover:text-white transition-colors"                  href="/products?category=Mont"                  >Montlar</a                >              </li>              <li>                <a                  class="text-gray-400 text-sm hover:text-white transition-colors"                  href="/products?category=Ceket"                  >Ceketler</a                >              </li>              <li>                <a                  class="text-gray-400 text-sm hover:text-white transition-colors"                  href="/products?category=Yelek"                  >Yelekler</a                >              </li>            </ul>          </div>          <div>            <h4              class="text-white text-xs uppercase tracking-widest mb-6 font-medium"            >              Hesap            </h4>            <ul class="space-y-4" id="footer-account-links">              <li>                <a                  class="text-gray-400 text-sm hover:text-white transition-colors"                  href="/auth/login"                  >Giriş Yap</a                >              </li>              <li>                <a                  class="text-gray-400 text-sm hover:text-white transition-colors"                  href="/auth/register"                  >Kayıt Ol</a                >              </li>            </ul>          </div>          <div>            <h4              class="text-white text-xs uppercase tracking-widest mb-6 font-medium"            >              Yardım            </h4>            <ul class="space-y-4">              <li>                <a                  class="text-gray-400 text-sm hover:text-white transition-colors"                  href="/contact"                  >İletişim</a                >              </li>              <li>                <a                  class="text-gray-400 text-sm hover:text-white transition-colors"                  href="/about"                  >Hakkımızda</a                >              </li>            </ul>          </div>        </div>        <div          class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-center items-center relative text-xs text-gray-500"        >          <p class="md:absolute md:left-0">            © 2026 CRISTOBAL. Tüm Hakları Saklıdır.          </p>          <p            class="font-display text-sm font-medium tracking-wide flex items-center"          >            Made By Berkay Aras            <a              href="https://github.com/aberk4y"              target="_blank"              class="ml-2 hover:text-white transition-colors"            >              <i class="fab fa-github text-lg"></i>            </a>          </p>        </div>      </div>    </footer>    <script src="/js/layout.js"></script>    <script>      document.addEventListener("DOMContentLoaded", () => {        fetch("/api/user/me")          .then((res) => res.json())          .then((data) => {            const user = data.user;            const lang = data.lang;            renderUserMenu(user, lang);            const footerAccountLinks = document.getElementById(              "footer-account-links",            );            if (footerAccountLinks) {              if (user) {                footerAccountLinks.innerHTML = `                        <li><a href="/user/profile" class="text-sm text-gray-500 hover:text-primary dark:hover:text-white transition-colors">Profilim</a></li>                        <li><a href="/user/orders" class="text-sm text-gray-500 hover:text-primary dark:hover:text-white transition-colors">Siparişlerim</a></li>                        <li><a href="/auth/logout" class="text-sm text-red-500 hover:text-red-700 transition-colors">Çıkış Yap</a></li>                    `;              } else {                footerAccountLinks.innerHTML = `                        <li><a href="/auth/login" class="text-sm text-gray-500 hover:text-primary dark:hover:text-white transition-colors">Giriş Yap</a></li>                        <li><a href="/auth/register" class="text-sm text-gray-500 hover:text-primary dark:hover:text-white transition-colors">Kayıt Ol</a></li>                    `;              }            }          });      });    </script>  </body></html>
+<!doctype html>
+<html lang="tr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRISTOBAL - Hakkımızda</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1a1a1a",
+              "background-light": "#fcfcfc",
+              "background-dark": "#121212",
+              "surface-light": "#f5f3ef",
+              "surface-dark": "#1e1e1e",
+              "accent-gold": "#C5A059",
+            },
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+              display: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "2px",
+            },
+            letterSpacing: {
+              widest: ".25em",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200 antialiased font-sans transition-colors duration-300"
+  >
+    <div
+      class="bg-primary text-white text-xs tracking-widest text-center py-2 uppercase font-medium"
+    >
+      1000$ ve Üzeri Siparişlerde Ücretsiz Kargo
+    </div>
+    <nav
+      class="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-gray-800 transition-colors duration-300"
+    >
+      <div class="w-full px-4 sm:px-6 lg:px-4 xl:px-8 2xl:px-12">
+        <div class="relative flex items-center justify-between h-20">
+          <div class="flex items-center md:hidden">
+            <button
+              class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white p-2"
+            >
+              <span class="material-icons-outlined">menu</span>
+            </button>
+          </div>
+          <div class="flex-shrink-0 flex items-center ml-6">
+            <a href="/">
+              <h1
+                class="font-serif text-2xl font-bold tracking-widest text-primary dark:text-white"
+              >
+                CRISTOBAL
+              </h1>
+            </a>
+          </div>
+          <div
+            class="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 space-x-0.5 lg:space-x-0.5 xl:space-x-2 2xl:space-x-6 text-sm lg:text-xs xl:text-sm tracking-normal lg:tracking-wide xl:tracking-widest"
+          >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/"
+              >Ana Sayfa</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/products"
+              id="nav-products-text"
+              >Ürünler</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/about"
+              id="nav-about-text"
+              >Hakkımızda</a
+            >
+            <a
+              class="text-base uppercase tracking-widest text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors"
+              href="/contact"
+              id="nav-contact-text"
+              >İletişim</a
+            >
+          </div>
+          <div
+            class="hidden md:flex items-center justify-end space-x-1 lg:space-x-0.5 xl:space-x-6"
+          >
+            <div id="user-menu-container" class="flex items-center"></div>
+            <span class="text-gray-300">|</span>
+            <a
+              href="/cart"
+              class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white relative group"
+            >
+              <span class="material-icons-outlined text-2xl">shopping_bag</span>
+              <span class="ml-1 text-base font-medium lg:text-xs xl:text-sm"
+                >Sepetim</span
+              >
+              <span
+                id="cart-badge"
+                class="hidden absolute -top-1 -right-1 h-2 w-2 bg-accent-gold rounded-full ring-2 ring-white dark:ring-surface-dark"
+              ></span>
+            </a>
+            <span class="text-gray-300">|</span>
+            <div class="relative group">
+              <button
+                class="flex items-center text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-white py-4"
+              >
+                <span class="material-icons-outlined text-2xl">language</span>
+              </button>
+              <div
+                class="absolute top-full right-0 h-4 w-full bg-transparent"
+              ></div>
+              <div
+                class="absolute right-0 top-full mt-2 w-32 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 shadow-lg rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-700 ease-in-out transform translate-y-4 group-hover:translate-y-0 z-50"
+              >
+                <a
+                  href="/set-lang/tr"
+                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"
+                  >TR</a
+                >
+                <a
+                  href="/set-lang/en"
+                  class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-50"
+                  >EN</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4 md:hidden">
+            <a href="/cart" class="text-gray-500"
+              ><span class="material-icons-outlined">shopping_bag</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="relative h-[60vh] overflow-hidden">
+      <div class="absolute inset-0 bg-black/40 z-10"></div>
+      <img
+        src="/images/hero-bg.jpg"
+        alt="Cristobal Factory"
+        class="w-full h-full object-cover object-[50%_35%] fixed-parallax"
+      />
+      <div class="absolute inset-0 flex items-center justify-center z-20">
+        <div class="text-center px-4">
+          <h1
+            class="text-6xl md:text-8xl font-serif text-white tracking-widest uppercase mb-6 drop-shadow-lg"
+          >
+            CRISTOBAL
+          </h1>
+          <p
+            class="text-white/90 text-sm md:text-lg tracking-[0.3em] font-light uppercase"
+          >
+            Sanatın ve Ustalığın Buluşması
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white dark:bg-background-dark">
+      <section class="max-w-4xl mx-auto px-4 pt-32 pb-10 text-center">
+        <h2
+          class="font-serif text-5xl md:text-6xl text-primary dark:text-white mb-8 uppercase tracking-widest"
+        >
+          Hakkımızda
+        </h2>
+        <div class="h-0.5 w-24 bg-primary dark:bg-white mx-auto mb-12"></div>
+        <p
+          class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed font-light mb-8"
+        >
+          2008 yılında kurulmuş olan <strong>HSY Tekstil</strong>, dış giyim
+          sektöründe kalite ve inovasyonu bir araya getirerek öne çıkan bir
+          oyuncudur. <strong>Cristobal</strong> markası ile sunduğumuz mont,
+          kaban ve outerwear koleksiyonlarımız, her sezon modanın dinamiklerine
+          uygun şekilde tasarlanmakta ve yüksek kaliteli malzemelerle
+          üretilmektedir.
+        </p>
+      </section>
+      <section class="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 mb-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+            <div
+              class="overflow-hidden rounded-sm shadow-xl hover:shadow-2xl hover:shadow-primary/80 transition-all duration-500 h-[850px] md:col-span-1 group"
+            >
+              <img
+                src="/images/cristechsol.webp"
+                alt="Cristech Detail Left"
+                class="w-full h-full grayscale-[30%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"
+              />
+            </div>
+            <div class="flex flex-col gap-5 h-[850px] md:col-span-4">
+              <div
+                class="overflow-hidden rounded-sm shadow-xl hover:shadow-2xl hover:shadow-primary/80 transition-all duration-500 h-[415px] w-full group"
+              >
+                <img
+                  src="/images/cristech.webp"
+                  alt="Cristech Technology"
+                  class="w-full h-full grayscale-[30%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"
+                />
+              </div>
+              <div
+                class="overflow-hidden rounded-sm shadow-xl hover:shadow-2xl hover:shadow-primary/80 transition-all duration-500 h-[415px] w-full group"
+              >
+                <img
+                  src="/images/crisortaalt.webp"
+                  alt="Cristech Coats"
+                  class="w-full h-full grayscale-[30%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"
+                />
+              </div>
+            </div>
+            <div
+              class="overflow-hidden rounded-sm shadow-xl hover:shadow-2xl hover:shadow-primary/80 transition-all duration-500 h-[850px] md:col-span-1 group"
+            >
+              <img
+                src="/images/cristechsag.webp"
+                alt="Cristech Detail Right"
+                class="w-full h-full grayscale-[30%] brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-[1.03] transition-all duration-700 ease-in-out"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 pt-10 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+          <div
+            class="bg-primary text-white p-12 flex flex-col items-center text-center group transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl"
+          >
+            <span
+              class="material-icons-outlined text-5xl mb-8 group-hover:scale-110 transition-transform duration-500"
+              >flag</span
+            >
+            <h3 class="text-2xl font-serif uppercase tracking-widest mb-6">
+              Misyonumuz
+            </h3>
+            <div
+              class="w-12 h-px bg-white/30 mb-8 group-hover:w-24 transition-all duration-500"
+            ></div>
+            <p class="text-gray-300 font-light leading-relaxed">
+              Tekstil dünyasında standartların ötesine geçerek, stil sahibi
+              bireyler için konforu ve şıklığı bir araya getiren özgün
+              tasarımlar sunmak. Sadece giysi değil, bir yaşam tarzı
+              tasarlıyoruz.
+            </p>
+          </div>
+          <div
+            class="bg-primary text-white p-12 flex flex-col items-center text-center group transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl"
+          >
+            <span
+              class="material-icons-outlined text-5xl mb-8 group-hover:scale-110 transition-transform duration-500"
+              >visibility</span
+            >
+            <h3 class="text-2xl font-serif uppercase tracking-widest mb-6">
+              Vizyonumuz
+            </h3>
+            <div
+              class="w-12 h-px bg-white/30 mb-8 group-hover:w-24 transition-all duration-500"
+            ></div>
+            <p class="text-gray-300 font-light leading-relaxed">
+              Global ölçekte tanınan, kalitesi ve tasarım diliyle ilham veren
+              bir marka olmak. Sürdürülebilir üretim teknikleriyle geleceği
+              şekillendirirken, geçmişin ustalığını modern dünyaya taşımak.
+            </p>
+          </div>
+        </div>
+        <div class="max-w-4xl mx-auto mb-24">
+          <div
+            class="bg-primary text-white p-12 flex flex-col items-center text-center group transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl w-full"
+          >
+            <span
+              class="material-icons-outlined text-5xl mb-8 group-hover:scale-110 transition-transform duration-500"
+              >diamond</span
+            >
+            <h3 class="text-2xl font-serif uppercase tracking-widest mb-6">
+              Değerlerimiz
+            </h3>
+            <div
+              class="w-12 h-px bg-white/30 mb-8 group-hover:w-24 transition-all duration-500"
+            ></div>
+            <p class="text-gray-300 font-light leading-relaxed">
+              Kalite, şıklık ve sürdürülebilirlik ilkelerimizle, doğaya saygılı
+              üretim yöntemleri kullanarak sağlıklı bir gelecek için değer
+              yaratıyoruz.
+            </p>
+          </div>
+        </div>
+        <div class="text-center flex flex-col items-center space-y-12">
+          <p class="text-3xl font-serif italic text-primary dark:text-white">
+            "CRISTOBAL : Mükemmelliğin Dokusu."
+          </p>
+          <img
+            src="/images/cr.png"
+            alt="CR Logo"
+            class="w-56 h-auto opacity-90 hover:opacity-100 transition-all duration-300 transform scale-x-125 mb-8"
+          />
+          <a
+            href="/contact"
+            class="inline-block border border-primary dark:border-white text-primary dark:text-white py-5 px-16 text-sm uppercase tracking-[0.25em] hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-all duration-300 transform hover:-translate-y-1"
+          >
+            Bizimle İletişime Geçin</a
+          >
+        </div>
+      </section>
+    </div>
+    <footer class="bg-primary text-white pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="md:col-span-1">
+            <h4 class="text-xl font-serif mb-6">CRISTOBAL</h4>
+            <p class="text-gray-400 text-xs leading-relaxed mb-6">
+              Seçici bireyler için tasarlanmış birinci sınıf dış giyim. Her
+              dikişte kalite, zarafet ve dayanıklılık.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/aberk4y/"
+                target="_blank"
+                class="text-gray-400 hover:text-white transition-colors"
+                ><i class="fab fa-instagram text-xl"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/people/Cristobal/61570013973632/?mibextid=LQQJ4d&rdid=gX9fM7LrSxmViL8X&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CtnvyTT8W%2F%3Fmibextid%3DLQQJ4d"
+                target="_blank"
+                class="text-gray-400 hover:text-white transition-colors"
+                ><i class="fab fa-facebook-f text-xl"></i
+              ></a>
+              <a
+                href="https://tr.pinterest.com/cristobalofficial/_created"
+                target="_blank"
+                class="text-gray-400 hover:text-white transition-colors"
+                ><i class="fab fa-pinterest text-xl"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4
+              class="text-white text-xs uppercase tracking-widest mb-6 font-medium"
+            >
+              Alışveriş
+            </h4>
+            <ul class="space-y-4">
+              <li>
+                <a
+                  class="text-gray-400 text-sm hover:text-white transition-colors"
+                  href="/products"
+                  >Tüm Ürünler</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 text-sm hover:text-white transition-colors"
+                  href="/products?category=Kaban"
+                  >Kabanlar</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 text-sm hover:text-white transition-colors"
+                  href="/products?category=Mont"
+                  >Montlar</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 text-sm hover:text-white transition-colors"
+                  href="/products?category=Ceket"
+                  >Ceketler</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 text-sm hover:text-white transition-colors"
+                  href="/products?category=Yelek"
+                  >Yelekler</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="text-white text-xs uppercase tracking-widest mb-6 font-medium"
+            >
+              Hesap
+            </h4>
+            <ul class="space-y-4" id="footer-account-links">
+              <li>
+                <a
+                  class="text-gray-400 text-sm hover:text-white transition-colors"
+                  href="/auth/login"
+                  >Giriş Yap</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 text-sm hover:text-white transition-colors"
+                  href="/auth/register"
+                  >Kayıt Ol</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="text-white text-xs uppercase tracking-widest mb-6 font-medium"
+            >
+              Yardım
+            </h4>
+            <ul class="space-y-4">
+              <li>
+                <a
+                  class="text-gray-400 text-sm hover:text-white transition-colors"
+                  href="/contact"
+                  >İletişim</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-gray-400 text-sm hover:text-white transition-colors"
+                  href="/about"
+                  >Hakkımızda</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-center items-center relative text-xs text-gray-500"
+        >
+          <p class="md:absolute md:left-0">
+            © 2026 CRISTOBAL. Tüm Hakları Saklıdır.
+          </p>
+          <p
+            class="font-display text-sm font-medium tracking-wide flex items-center"
+          >
+            Made By Berkay Aras
+            <a
+              href="https://github.com/aberk4y"
+              target="_blank"
+              class="ml-2 hover:text-white transition-colors"
+            >
+              <i class="fab fa-github text-lg"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="/js/layout.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("/api/user/me")
+          .then((res) => res.json())
+          .then((data) => {
+            const user = data.user;
+            const lang = data.lang;
+            renderUserMenu(user, lang);
+            const footerAccountLinks = document.getElementById(
+              "footer-account-links",
+            );
+            if (footerAccountLinks) {
+              if (user) {
+                footerAccountLinks.innerHTML = `
+                        <li><a href="/user/profile" class="text-sm text-gray-500 hover:text-primary dark:hover:text-white transition-colors">Profilim</a></li>
+                        <li><a href="/user/orders" class="text-sm text-gray-500 hover:text-primary dark:hover:text-white transition-colors">Siparişlerim</a></li>
+                        <li><a href="/auth/logout" class="text-sm text-red-500 hover:text-red-700 transition-colors">Çıkış Yap</a></li>
+                    `;
+              } else {
+                footerAccountLinks.innerHTML = `
+                        <li><a href="/auth/login" class="text-sm text-gray-500 hover:text-primary dark:hover:text-white transition-colors">Giriş Yap</a></li>
+                        <li><a href="/auth/register" class="text-sm text-gray-500 hover:text-primary dark:hover:text-white transition-colors">Kayıt Ol</a></li>
+                    `;
+              }
+            }
+          });
+      });
+    </script>
+  </body>
+</html>
